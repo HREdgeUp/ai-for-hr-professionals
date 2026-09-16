@@ -135,9 +135,149 @@
       </div>
     </section>
 
-    <!-- GUARDRAILS -->
+       <!-- GUARDRAILS -->
     <section id="guardrails" class="section alt">
       <h2>04 Human-Centered Guardrails</h2>
       <ul class="guardrails-list">
         <li><strong>Never input personal employee data.</strong></li>
-        <li>
+        <li><strong>Actively check for bias.</strong> Review outputs for gendered language or discriminatory patterns.</li>
+        <li><strong>Maintain the human relationship.</strong> AI should never replace direct human conversations.</li>
+        <li><strong>Know your legal landscape.</strong> Understand regulations before using AI in employment decisions.</li>
+        <li><strong>Build an audit trail.</strong> Document prompts, tools, outputs, and human review.</li>
+      </ul>
+    </section>
+
+    <!-- PROMPTS -->
+    <section id="prompts" class="section">
+      <h2>05 Sample Prompts Library</h2>
+      <p>Copy, adapt, and use these prompts in any AI tool.</p>
+
+      <div class="prompt-card">
+        <h3>Talent Acquisition | Job Description</h3>
+        <pre>
+"Act as a senior HR professional. I am hiring a [job title] at a [company size] [industry] company.
+Our culture values [two to three values]. Write an inclusive, compelling job description in plain
+language, avoiding jargon. Include: a role summary, key responsibilities in six to eight bullets,
+qualifications separated into must-have and nice-to-have, and a culture and benefits statement.
+Keep it under 500 words."
+        </pre>
+      </div>
+    </section>
+
+    <!-- WORKFLOWS -->
+    <section id="workflows" class="section alt">
+      <h2>06 AI Workflows for HR</h2>
+      <p>Use these workflows to integrate AI into your HR processes responsibly.</p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Interview Guide Workflow</h3>
+          <ul>
+            <li>Provide role + competencies</li>
+            <li>Ask AI for behavioral questions</li>
+            <li>Request scoring rubrics</li>
+            <li>Refine tone + difficulty</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Policy Drafting Workflow</h3>
+          <ul>
+            <li>Provide context + audience</li>
+            <li>Ask for 1-page draft</li>
+            <li>Request examples</li>
+            <li>Refine for clarity + tone</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section id="checklist" class="section">
+      <h2>07 Getting Started Checklist</h2>
+      <ul>
+        <li>Choose one HR process to enhance with AI.</li>
+        <li>Write a CLEAR prompt for that process.</li>
+        <li>Review outputs for bias + accuracy.</li>
+        <li>Document your workflow.</li>
+        <li>Share learnings with your team.</li>
+      </ul>
+      <p class="note">Start small. Iterate. Build confidence.</p>
+    </section>
+
+    <!-- INTERACTIVE TOOLS -->
+    <section id="interactive" class="section alt">
+      <h2>08 Interactive Tools</h2>
+
+      <div class="interactive-grid">
+
+        <!-- CLEAR Prompt Builder -->
+        <div class="interactive-card">
+          <h3>CLEAR Prompt Builder</h3>
+
+          <label>Context</label>
+          <textarea id="context"></textarea>
+
+          <label>Language / Tone</label>
+          <textarea id="language"></textarea>
+
+          <label>Examples</label>
+          <textarea id="examples"></textarea>
+
+          <label>Ask</label>
+          <textarea id="ask"></textarea>
+
+          <label>Refine</label>
+          <textarea id="refine"></textarea>
+
+          <button id="build-prompt-btn" class="primary-btn">Build Prompt</button>
+
+          <div class="output-box">
+            <textarea id="generated-prompt" readonly></textarea>
+          </div>
+        </div>
+
+        <!-- Prompt Strength Tester -->
+        <div class="interactive-card">
+          <h3>Prompt Strength Tester</h3>
+
+          <label>Paste Your Prompt</label>
+          <textarea id="prompt-input"></textarea>
+
+          <button id="score-prompt-btn" class="primary-btn">Score Prompt</button>
+
+          <div class="score-box">
+            <div id="score-summary"></div>
+            <ul id="score-breakdown"></ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>09 About Heather Limke</h2>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>People & Culture Leader</h3>
+          <p>Heather Limke is a strategic HR executive and founder of a coaching practice focused on modern HR leadership, AI adoption, and organizational design.</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Purpose</h3>
+          <p>Heather created this guide to help HR professionals confidently and responsibly integrate AI into their work.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    © 2024 Heather Limke — AI for People Leaders
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
