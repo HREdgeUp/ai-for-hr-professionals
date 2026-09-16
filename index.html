@@ -17,25 +17,28 @@
     }
 
     header {
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
       border-bottom: 1px solid #eee;
     }
 
     header h1 {
-      font-size: 42px;
+      font-size: 48px;
       margin-bottom: 10px;
       font-weight: 600;
     }
 
     header p {
-      font-size: 18px;
+      font-size: 20px;
       color: #555;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     nav {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
       padding: 15px;
       border-bottom: 1px solid #eee;
@@ -115,7 +118,7 @@
 
 <header>
   <h1>AI for People Leaders</h1>
-  <p>A Practical, Human‑Centered Guide for Modern HR</p>
+  <p>A practical, human‑centered guide to using AI responsibly in modern HR.</p>
 </header>
 
 <nav>
@@ -132,8 +135,16 @@
 <!-- SECTION 01 -->
 <section id="introduction" class="section">
   <h2>01 Introduction: Why AI, Why Now for HR?</h2>
-  <p>Artificial intelligence is reshaping how people leaders recruit, onboard, develop, retain, and support employees. The question is no longer whether to use AI, but how to use it responsibly and effectively.</p>
-  <p>This guide is designed for People Leaders who are curious, thoughtful, and ready to lead their organizations into this moment with intention.</p>
+  <p>
+    Artificial intelligence is reshaping how people leaders recruit, onboard, develop, retain, and support employees.
+    The question is no longer whether to use AI, but how to use it responsibly and effectively.
+  </p>
+
+  <p>
+    This guide is designed for People Leaders who are curious, thoughtful, and ready to lead their organizations into
+    this moment with intention. You do not need a technical background to use AI well — you need strong human judgment,
+    empathy, and a commitment to doing right by your people.
+  </p>
 
   <h3>The Core Principle</h3>
   <p><strong>AI amplifies human capability. It does not replace human responsibility.</strong></p>
@@ -153,7 +164,7 @@
   <h3>What AI Cannot Replace</h3>
   <ul>
     <li>Human judgment</li>
-    <li>Authentic relationships</li>
+    <li>Authententic relationships</li>
     <li>Ethical decision‑making</li>
     <li>Contextual understanding</li>
     <li>Leadership accountability</li>
@@ -178,12 +189,59 @@
   <h2>03 HR Use Cases by Function</h2>
 
   <div class="cards-grid">
-    <div class="card"><h3>Talent Acquisition</h3><ul><li>Job descriptions</li><li>Interview guides</li><li>Candidate communications</li></ul></div>
-    <div class="card"><h3>Onboarding</h3><ul><li>30‑60‑90 plans</li><li>Orientation guides</li><li>Welcome messages</li></ul></div>
-    <div class="card"><h3>Performance</h3><ul><li>Review templates</li><li>Feedback language</li><li>Improvement plans</li></ul></div>
-    <div class="card"><h3>Learning</h3><ul><li>Curricula</li><li>Scenario learning</li><li>Facilitation guides</li></ul></div>
-    <div class="card"><h3>Employee Relations</h3><ul><li>Policies</li><li>Investigation templates</li><li>Talking points</li></ul></div>
-    <div class="card"><h3>HR Analytics</h3><ul><li>Survey themes</li><li>Executive summaries</li><li>Attrition insights</li></ul></div>
+    <div class="card">
+      <h3>Talent Acquisition</h3>
+      <ul>
+        <li>Job descriptions</li>
+        <li>Interview guides</li>
+        <li>Candidate communications</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Onboarding</h3>
+      <ul>
+        <li>30‑60‑90 plans</li>
+        <li>Orientation guides</li>
+        <li>Welcome messages</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Performance</h3>
+      <ul>
+        <li>Review templates</li>
+        <li>Feedback language</li>
+        <li>Improvement plans</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Learning & Development</h3>
+      <ul>
+        <li>Curricula</li>
+        <li>Scenario learning</li>
+        <li>Facilitation guides</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Employee Relations</h3>
+      <ul>
+        <li>Policies</li>
+        <li>Investigation templates</li>
+        <li>Talking points</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>HR Analytics</h3>
+      <ul>
+        <li>Survey themes</li>
+        <li>Executive summaries</li>
+        <li>Attrition insights</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -192,11 +250,11 @@
   <h2>04 Human‑Centered Guardrails</h2>
 
   <div class="cards-grid">
-    <div class="card"><h3>1. Never Input Personal Data</h3></div>
-    <div class="card"><h3>2. Check for Bias</h3></div>
-    <div class="card"><h3>3. Maintain Human Connection</h3></div>
-    <div class="card"><h3>4. Know the Legal Landscape</h3></div>
-    <div class="card"><h3>5. Build an Audit Trail</h3></div>
+    <div class="card"><h3>1. Never Input Personal Data</h3><p>Protect privacy.</p></div>
+    <div class="card"><h3>2. Check for Bias</h3><p>Review outputs carefully.</p></div>
+    <div class="card"><h3>3. Maintain Human Connection</h3><p>AI supports — it does not replace.</p></div>
+    <div class="card"><h3>4. Know the Legal Landscape</h3><p>Regulations are evolving.</p></div>
+    <div class="card"><h3>5. Build an Audit Trail</h3><p>Document AI‑assisted decisions.</p></div>
   </div>
 </section>
 
@@ -256,17 +314,29 @@
 
   <div class="checklist-phase">
     <h3>Phase 1: Foundation</h3>
-    <ul><li>Read policy</li><li>Select tool</li><li>Practice CLEAR</li></ul>
+    <ul>
+      <li>Read policy</li>
+      <li>Select tool</li>
+      <li>Practice CLEAR</li>
+    </ul>
   </div>
 
   <div class="checklist-phase">
     <h3>Phase 2: Practice</h3>
-    <ul><li>Draft JD</li><li>Run workflow</li><li>Collect feedback</li></ul>
+    <ul>
+      <li>Draft JD</li>
+      <li>Run workflow</li>
+      <li>Collect feedback</li>
+    </ul>
   </div>
 
   <div class="checklist-phase">
     <h3>Phase 3: Scale</h3>
-    <ul><li>Build prompt library</li><li>Train team</li><li>Document decisions</li></ul>
+    <ul>
+      <li>Build prompt library</li>
+      <li>Train team</li>
+      <li>Document decisions</li>
+    </ul>
   </div>
 </section>
 
@@ -274,7 +344,10 @@
 <section id="about" class="section">
   <h2>08 About Heather</h2>
 
-  <p>Heather Limke is a People & Culture Leader with deep experience across HR, organizational design, and AI integration.</p>
+  <p>
+    Heather Limke is a People & Culture Leader with deep experience across HR, organizational design,
+    and AI integration.
+  </p>
 
   <div class="about-card">
     <h3>Expertise</h3>
@@ -294,7 +367,9 @@
   </div>
 
   <div class="quote-box">
-    <p>“The most powerful thing AI can do for HR is give us back the time and energy to be more human.”</p>
+    <p>
+      “The most powerful thing AI can do for HR is give us back the time and energy to be more human.”
+    </p>
   </div>
 </section>
 
