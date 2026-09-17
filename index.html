@@ -31,8 +31,6 @@
       color: var(--text);
     }
 
-    /* Header / Hero Shell */
-
     .site-header {
       position: sticky;
       top: 0;
@@ -160,8 +158,6 @@
       color: var(--muted);
     }
 
-    /* Sections */
-
     .section {
       padding: 3rem 2rem;
       max-width: 1100px;
@@ -179,11 +175,31 @@
       margin-bottom: 1rem;
     }
 
+    .section h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+
     .section p {
       max-width: 800px;
     }
 
-    /* Grids & Cards */
+    .page-header {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-footer {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 0.75rem;
+    }
 
     .cards-grid,
     .clear-grid,
@@ -224,8 +240,6 @@
       margin: 0;
     }
 
-    /* CLEAR example */
-
     .example-box {
       margin-top: 1.5rem;
       padding: 1.2rem;
@@ -233,8 +247,6 @@
       border: 1px dashed var(--accent);
       background: rgba(15, 23, 42, 0.8);
     }
-
-    /* Guardrails */
 
     .guardrails-list {
       list-style: none;
@@ -246,8 +258,6 @@
       margin-bottom: 0.6rem;
     }
 
-    /* Prompts */
-
     .prompt-card pre {
       background: #020617;
       border-radius: 12px;
@@ -256,15 +266,11 @@
       overflow-x: auto;
     }
 
-    /* Checklist */
-
     .note {
       margin-top: 1.5rem;
       font-style: italic;
       color: var(--muted);
     }
-
-    /* Interactive */
 
     .interactive-card textarea,
     .interactive-card input {
@@ -380,16 +386,18 @@
     <div class="hero-content">
       <div class="hero-glow"></div>
       <h1>AI for People Leaders</h1>
-      <p>A practical, human‑centered guide to using AI responsibly in modern HR.</p>
-      <p class="tagline">Designed for HR leaders who want clarity, guardrails, and real‑world workflows — not hype.</p>
+      <p>A Practical, Human-Centered Guide for Modern HR.</p>
+      <p class="tagline">
+        CLEAR Framework, HR use cases, guardrails, workflows, and prompts — built for real people leadership work.
+      </p>
       <button class="primary-btn">Try the CLEAR Prompt Builder</button>
       <button class="secondary-btn">Score an existing prompt</button>
     </div>
     <div class="hero-aside">
       <div class="hero-aside-inner">
-        <h2>Your HR‑Ready AI Workspace</h2>
+        <h2>Your HR-Ready AI Workspace</h2>
         <p>Build better prompts, test their strength, and apply them directly to HR work.</p>
-        <p>All in one simple, human‑centered page.</p>
+        <p>All in one simple, human-centered page.</p>
       </div>
     </div>
   </div>
@@ -397,10 +405,11 @@
 
 <section class="section alt" id="interactive-tools">
   <h2>Interactive Tools: Build and Score Your Prompts</h2>
-  <p>Use these tools to structure your prompts with CLEAR and quickly assess their strength before using them in HR work.</p>
+  <p>
+    Use these tools to structure your prompts with CLEAR and quickly assess their strength before using them in HR work.
+  </p>
 
   <div class="interactive-grid">
-    <!-- CLEAR Prompt Builder -->
     <div class="interactive-card">
       <h3>CLEAR Prompt Builder</h3>
 
@@ -427,7 +436,6 @@
       </div>
     </div>
 
-    <!-- Prompt Strength Tester -->
     <div class="interactive-card">
       <h3>Prompt Strength Tester</h3>
 
@@ -444,260 +452,524 @@
   </div>
 </section>
 
-<!-- SECTION 01 -->
-<section id="introduction" class="section">
+<section class="section" id="introduction">
+  <div class="page-header">PEOPLE LEADERSHIP SERIES | 2026 EDITION</div>
   <h2>01 Introduction: Why AI, Why Now for HR?</h2>
-  <p>
-    Artificial intelligence is reshaping how people leaders recruit, onboard, develop, retain, and support employees.
-    The question is no longer whether to use AI, but how to use it responsibly and effectively.
-  </p>
 
   <p>
-    This guide is designed for People Leaders who are curious, thoughtful, and ready to lead their organizations into
-    this moment with intention. You do not need a technical background to use AI well — you need strong human judgment,
-    empathy, and a commitment to doing right by your people.
+    Artificial intelligence is no longer a future concept for HR. It is here, and it is changing how people leaders recruit,
+    onboard, develop, retain, and support employees. The question is no longer whether to use AI, but how to use it well.
+    This guide was written for People Leaders who are curious, a little cautious, and ready to lead their organizations into
+    this moment with intention. You do not need a technology background. You need what you already have: strong
+    human judgment, empathy, and a genuine commitment to doing right by your people.
   </p>
 
-  <h3>The Core Principle</h3>
-  <p><strong>AI amplifies human capability. It does not replace human responsibility.</strong></p>
-
-  <h3>What AI Can Do</h3>
+  <h3>What AI Can Do for HR Today</h3>
   <ul>
-    <li>Draft job descriptions and policy documents</li>
-    <li>Analyze engagement survey data</li>
-    <li>Generate onboarding plans</li>
-    <li>Create performance frameworks</li>
-    <li>Summarize meetings</li>
-    <li>Build interview guides</li>
-    <li>Research compensation trends</li>
-    <li>Produce employee communications</li>
+    <li>Draft job descriptions, offer letters, and policy documents in minutes</li>
+    <li>Analyze engagement survey data and surface key themes instantly</li>
+    <li>Generate personalized onboarding plans and learning paths</li>
+    <li>Create performance review frameworks and behavioral anchors</li>
+    <li>Summarize meeting notes and produce clear action items automatically</li>
+    <li>Build structured interview guides aligned to competencies</li>
+    <li>Research compensation benchmarks and market trends</li>
+    <li>Produce employee communications in any tone or reading level</li>
   </ul>
 
   <h3>What AI Cannot Replace</h3>
-  <ul>
-    <li>Human judgment</li>
-    <li>Authententic relationships</li>
-    <li>Ethical decision‑making</li>
-    <li>Contextual understanding</li>
-    <li>Leadership accountability</li>
-  </ul>
+  <p>
+    Human judgment in sensitive employee relations situations. Authentic relationships and trust built over time.
+    Ethical decision-making in complex, context-dependent situations. Contextual understanding of your specific culture
+    and people. Accountability: a leader, not an AI, owns every outcome.
+  </p>
+
+  <h3>The Core Principle of This Guide</h3>
+  <p>
+    AI amplifies human capability. It does not replace human responsibility. Every output from an AI tool should be
+    reviewed, refined, and owned by you. The goal is not to automate HR. The goal is to free you to be more human.
+  </p>
+
+  <h3>A Note on AI Tools</h3>
+  <p>
+    This guide is tool-agnostic. The frameworks, prompts, and workflows here work with Microsoft Copilot, ChatGPT,
+    Google Gemini, Claude, and any other large language model you choose to use. Always follow your organization's
+    data privacy and AI usage policies when working with these tools.
+  </p>
+
+  <div class="page-footer">Page 3 — 2026 — Heather Limke</div>
 </section>
 
-<!-- SECTION 02 -->
-<section id="clear-framework" class="section alt">
+<section class="section alt" id="clear-framework">
+  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
   <h2>02 The CLEAR Framework</h2>
 
-  <div class="cards-grid">
-    <div class="card"><h3>C — Context</h3><p>Set the scene.</p></div>
-    <div class="card"><h3>L — Language</h3><p>Specify tone.</p></div>
-    <div class="card"><h3>E — Examples</h3><p>Show what good looks like.</p></div>
-    <div class="card"><h3>A — Ask</h3><p>State your request clearly.</p></div>
-    <div class="card"><h3>R — Refine</h3><p>Iterate to excellence.</p></div>
-  </div>
+  <p>
+    The CLEAR Framework gives people leaders a repeatable five-step process for getting high-quality, responsible
+    outputs from any AI tool. Think of it as your mental checklist before every prompt.
+  </p>
+
+  <h3>C — Context: Set the scene</h3>
+  <p>
+    Tell the AI who you are, what your organization does, and the specific situation. More context produces more
+    relevant and accurate output.
+  </p>
+
+  <h3>L — Language: Set the tone</h3>
+  <p>
+    Specify the voice, tone, and reading level. Examples: “professional but warm,” “direct and concise,” or
+    “appropriate for frontline employees.”
+  </p>
+
+  <h3>E — Examples: Show, don’t tell</h3>
+  <p>
+    Provide one or two examples of what “good” looks like. Examples dramatically improve quality and alignment to
+    your standards and voice.
+  </p>
+
+  <h3>A — Ask: Make the request</h3>
+  <p>
+    State your specific ask clearly. Include format, length, structure, and any constraints such as “no jargon” or
+    “bullet points only.”
+  </p>
+
+  <h3>R — Refine: Iterate to excellence</h3>
+  <p>
+    AI outputs are first drafts, not finished products. Refine with feedback such as “Make this more empathetic,”
+    “Shorten by 30 percent,” or “Rewrite the opening paragraph.” Treat AI like a talented colleague who benefits from
+    clear, kind redirection.
+  </p>
 
   <div class="example-box">
-    <p><strong>Example CLEAR prompt:</strong></p>
+    <p><strong>CLEAR in Action: A Quick Example</strong></p>
     <p>
-      “Context: I’m an HR Director supporting a 200‑person engineering org going through a reorg.<br />
-      Language: Professional, clear, empathetic.<br />
-      Examples: Here are two past messages that landed well.<br />
-      Ask: Draft a manager‑ready announcement and a separate employee‑ready announcement.<br />
-      Refine: Shorten both versions to under 300 words and add 3 bullet points of key actions.”
+      C - Context: I am an HR Director at a 500-person manufacturing company.<br />
+      L - Language: Professional tone, accessible for frontline supervisors.<br />
+      E - Examples: Here is a sample policy we have used before: [paste example here]<br />
+      A - Ask: Draft a one-page attendance policy balancing accountability with flexibility.<br />
+      R - Refine: “Make the consequences section less punitive and add a wellness support note.”
     </p>
   </div>
+
+  <div class="page-footer">Page 4 — 2026 — Heather Limke</div>
 </section>
 
-<!-- SECTION 03 -->
-<section id="use-cases" class="section">
+<section class="section" id="use-cases">
+  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
   <h2>03 HR Use Cases by Function</h2>
 
-  <div class="cards-grid">
-    <div class="card">
-      <h3>Talent Acquisition</h3>
-      <ul>
-        <li>Job descriptions</li>
-        <li>Interview guides</li>
-        <li>Candidate communications</li>
-      </ul>
-    </div>
+  <p>
+    AI can add meaningful value across every HR discipline. Below are the highest-impact applications organized by
+    function area, a practical starting point for identifying where to begin.
+  </p>
 
-    <div class="card">
-      <h3>Onboarding</h3>
-      <ul>
-        <li>30‑60‑90 plans</li>
-        <li>Orientation guides</li>
-        <li>Welcome messages</li>
-      </ul>
-    </div>
+  <h3>Talent Acquisition</h3>
+  <ul>
+    <li>Generate compelling, inclusive job descriptions from a role summary</li>
+    <li>Build structured behavioral interview guides aligned to competencies</li>
+    <li>Draft candidate communication templates for confirmations, rejections, and offers</li>
+    <li>Analyze job postings for biased language and suggest neutral alternatives</li>
+    <li>Create sourcing strategies and Boolean search strings for recruiters</li>
+    <li>Summarize candidate feedback from interview panels into clear themes</li>
+  </ul>
 
-    <div class="card">
-      <h3>Performance</h3>
-      <ul>
-        <li>Review templates</li>
-        <li>Feedback language</li>
-        <li>Improvement plans</li>
-      </ul>
-    </div>
+  <h3>Onboarding and Employee Experience</h3>
+  <ul>
+    <li>Build role-specific 30-60-90 day onboarding plans</li>
+    <li>Create FAQ documents and reference guides for new hire orientation</li>
+    <li>Draft warm, personalized welcome messages from leaders</li>
+    <li>Design onboarding surveys and early pulse check templates</li>
+    <li>Generate manager guides for supporting new team members effectively</li>
+  </ul>
 
-    <div class="card">
-      <h3>Learning & Development</h3>
-      <ul>
-        <li>Curricula</li>
-        <li>Scenario learning</li>
-        <li>Facilitation guides</li>
-      </ul>
-    </div>
+  <h3>Performance Management</h3>
+  <ul>
+    <li>Create performance review templates with behavioral anchors by level</li>
+    <li>Draft developmental feedback language that is specific and actionable</li>
+    <li>Generate improvement plan frameworks with clear, measurable milestones</li>
+    <li>Summarize performance themes across teams from manager notes</li>
+    <li>Build goal-setting frameworks such as OKRs and SMART goals calibrated to specific roles</li>
+  </ul>
 
-    <div class="card">
-      <h3>Employee Relations</h3>
-      <ul>
-        <li>Policies</li>
-        <li>Investigation templates</li>
-        <li>Talking points</li>
-      </ul>
-    </div>
+  <h3>Learning and Development</h3>
+  <ul>
+    <li>Outline training curricula for leadership and skills development programs</li>
+    <li>Create scenario-based learning content and discussion questions</li>
+    <li>Draft microlearning content, knowledge checks, and quick reference cards</li>
+    <li>Generate a sequenced learning path for new managers or individual contributors</li>
+    <li>Build facilitation guides for team workshops and culture sessions</li>
+  </ul>
 
-    <div class="card">
-      <h3>HR Analytics</h3>
-      <ul>
-        <li>Survey themes</li>
-        <li>Executive summaries</li>
-        <li>Attrition insights</li>
-      </ul>
-    </div>
-  </div>
+  <h3>Employee Relations and Policy</h3>
+  <ul>
+    <li>Draft or update HR policies in plain, accessible, jargon-free language</li>
+    <li>Create investigation documentation templates and intake frameworks</li>
+    <li>Generate talking points for difficult or sensitive manager conversations</li>
+    <li>Research best practices for emerging workplace issues and regulations</li>
+    <li>Draft responses to employee concerns, always reviewed before sending</li>
+  </ul>
+
+  <h3>HR Analytics and Reporting</h3>
+  <ul>
+    <li>Interpret engagement survey data and surface the most important themes</li>
+    <li>Draft executive summaries from HR metrics, dashboards, and scorecards</li>
+    <li>Generate hypotheses about attrition trends from descriptive workforce data</li>
+    <li>Create data storytelling narratives for leadership presentations</li>
+    <li>Build targeted survey questions to measure specific culture dimensions</li>
+  </ul>
+
+  <div class="page-footer">Page 6 — 2026 — Heather Limke</div>
 </section>
 
-<!-- SECTION 04 -->
-<section id="guardrails" class="section alt">
-  <h2>04 Human‑Centered Guardrails</h2>
+<section class="section alt" id="guardrails">
+  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
+  <h2>04 Human-Centered Guardrails</h2>
+
+  <p>
+    Using AI in HR comes with real responsibilities. People are directly affected by AI-influenced decisions. These
+    guardrails are non-negotiable principles for ethical, human-centered AI use in people management.
+  </p>
 
   <ul class="guardrails-list">
-    <li><strong>1. Never Input Personal Data</strong> — Protect privacy and confidentiality.</li>
-    <li><strong>2. Check for Bias</strong> — Review outputs for fairness and unintended patterns.</li>
-    <li><strong>3. Maintain Human Connection</strong> — AI supports; it does not replace human presence.</li>
-    <li><strong>4. Know the Legal Landscape</strong> — Regulations are evolving; stay aligned with counsel.</li>
-    <li><strong>5. Build an Audit Trail</strong> — Document when and how AI was used in decisions.</li>
+    <li>
+      <strong>1. Never Input Personal Employee Data</strong><br />
+      Do not paste names, email addresses, employee IDs, or any personally identifiable information into AI tools.
+      Always anonymize data before use.
+    </li>
+    <li>
+      <strong>2. Check for Bias</strong><br />
+      AI systems can reflect and amplify societal biases. Review outputs for gendered language, cultural assumptions,
+      or discriminatory patterns, especially in job descriptions, performance language, and candidate evaluations.
+      Use dedicated bias-checking tools or structured review checklists.
+    </li>
+    <li>
+      <strong>5. Maintain the Human Relationship</strong><br />
+      AI should never replace a direct human conversation in sensitive situations. Employee relations issues,
+      performance concerns, terminations, and wellness conversations require a human being present. AI can help you
+      prepare, but it cannot substitute for your presence, empathy, and judgment.
+    </li>
+    <li>
+      <strong>6. Know Your Legal Landscape</strong><br />
+      AI use in employment decisions may be subject to emerging regulations such as NYC Local Law 144, the EU AI
+      Act, and EEOC guidance. Partner with legal counsel to understand what applies in your jurisdiction before using AI
+      in hiring, promotions, or performance management decisions.
+    </li>
+    <li>
+      <strong>7. Build an Audit Trail</strong><br />
+      For any AI-assisted decision affecting employees, document what tool was used, what prompt was given, what
+      output was received, and what human review and modifications were made. This protects both the employee and
+      your organization.
+    </li>
   </ul>
+
+  <div class="page-footer">Page 7 — 2026 — Heather Limke</div>
 </section>
 
-<!-- SECTION 05 -->
-<section id="prompts" class="section">
+<section class="section" id="prompts">
+  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
   <h2>05 Sample Prompts Library</h2>
 
+  <p>
+    Copy, adapt, and use these prompts in any AI tool. Each follows the CLEAR Framework. Replace the bracketed
+    placeholders with your specific information before submitting.
+  </p>
+
   <div class="prompt-card">
-    <h3>Job Description</h3>
-    <p>“Act as a senior HR professional…”</p>
+    <h3>TALENT ACQUISITION | Job Description</h3>
+    <p>
+      “Act as a senior HR professional. I am hiring a [job title] at a [company size] [industry] company. Our culture values
+      [two to three values]. Write an inclusive, compelling job description in plain language, avoiding jargon. Include: a
+      role summary, key responsibilities in six to eight bullets, qualifications separated into must-have and nice-to-have,
+      and a culture and benefits statement. Keep it under 500 words.”
+    </p>
+    <p class="note">
+      Tip: Add language such as “We welcome applicants of all backgrounds” to signal belonging and boost inclusion.
+    </p>
   </div>
 
   <div class="prompt-card">
-    <h3>Interview Guide</h3>
-    <p>“Create a structured behavioral interview guide…”</p>
+    <h3>TALENT ACQUISITION | Structured Interview Guide</h3>
+    <p>
+      “Create a structured behavioral interview guide for a [job title] role. Include eight questions in STAR format covering
+      collaboration, problem-solving, adaptability, and [one role-specific competency], with two questions per area.
+      Include a follow-up probing question for each.”
+    </p>
+    <p class="note">
+      Tip: Specify the seniority level so the behavioral expectations are appropriately calibrated.
+    </p>
   </div>
 
   <div class="prompt-card">
-    <h3>Onboarding Plan</h3>
-    <p>“Build a 30‑60‑90 day plan…”</p>
+    <h3>ONBOARDING | 30-60-90 Day Plan</h3>
+    <p>
+      “Build a 30-60-90 day onboarding plan for a new [job title] joining the [department] team at a [company size]
+      company. Include: key relationships to build, systems to learn, early wins to pursue, and success metrics for each
+      phase. Format as a clear, readable table.”
+    </p>
+    <p class="note">
+      Tip: Share with the hiring manager for an accuracy review before giving it to the new hire.
+    </p>
   </div>
 
   <div class="prompt-card">
-    <h3>Developmental Feedback</h3>
-    <p>“Write feedback using the SBI model…”</p>
+    <h3>PERFORMANCE | Developmental Feedback Using the SBI Model</h3>
+    <p>
+      “Write feedback for an employee who excels at [strength] but needs development in [area]. Produce three specific,
+      actionable feedback statements using the SBI model, which covers Situation, Behavior, and Impact. Make the tone
+      encouraging and growth-oriented, and avoid evaluative or judgmental language.”
+    </p>
+    <p class="note">
+      Tip: Never paste real employee names or identifying details. Use generic role-based placeholders instead.
+    </p>
   </div>
 
   <div class="prompt-card">
-    <h3>Difficult Conversation Prep</h3>
-    <p>“Help me prepare for a conversation…”</p>
+    <h3>EMPLOYEE RELATIONS | Manager Conversation Preparation</h3>
+    <p>
+      “Help me prepare for a conversation with a manager about a team member who has been missing deadlines and
+      appears disengaged. The goal is to understand what is happening, demonstrate care, and set clear expectations
+      going forward. Suggest five open-ended questions and three key messages.”
+    </p>
+    <p class="note">
+      Tip: Add context about your company culture to receive more tailored and situationally appropriate suggestions.
+    </p>
   </div>
+
+  <div class="prompt-card">
+    <h3>LEARNING AND DEVELOPMENT | Workshop Facilitation Guide</h3>
+    <p>
+      “Create a two-hour facilitation guide for a manager training session on [topic such as giving feedback, inclusive
+      leadership, or having difficult conversations]. Include: three learning objectives, a timed agenda, two interactive
+      activities with facilitation notes, discussion questions, and a closing reflection prompt.”
+    </p>
+    <p class="note">
+      Tip: Specify whether your audience consists of new managers or experienced leaders for better calibration.
+    </p>
+  </div>
+
+  <div class="prompt-card">
+    <h3>HR COMMUNICATIONS | All-Company Announcement</h3>
+    <p>
+      “Draft an all-company email announcing [change or initiative] from the perspective of [role such as CHRO, CEO, or
+      HR Director]. Tone: transparent, empathetic, and confident. Length: 300 to 400 words. Include: what is changing,
+      why it matters, what employees can expect, and where to ask questions.”
+    </p>
+    <p class="note">
+      Tip: Always have a senior leader review all-company communications before they are distributed.
+    </p>
+  </div>
+
+  <div class="prompt-card">
+    <h3>HR ANALYTICS | Engagement Survey Theme Analysis</h3>
+    <p>
+      “I will share anonymized employee engagement survey comments. Identify the top five themes, note whether each
+      is a strength or a concern, provide one representative quote per theme, and suggest one concrete and actionable
+      next step per theme. Do not reference any specific individual.”
+    </p>
+    <p class="note">
+      Tip: Paste only anonymized, aggregated text. Never include individual attributed or identifiable responses.
+    </p>
+  </div>
+
+  <div class="page-footer">Page 9 — 2026 — Heather Limke</div>
 </section>
 
-<!-- SECTION 06 -->
-<section id="workflows" class="section alt">
-  <h2>06 AI Workflows Step‑By‑Step</h2>
+<section class="section alt" id="workflows">
+  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
+  <h2>06 AI Workflows Step-by-Step</h2>
 
-  <div class="card">
-    <h3>Workflow 1: Job Description</h3>
-    <p>Steps 1–5 as rewritten.</p>
-  </div>
+  <p>
+    These end-to-end workflows show how to integrate AI into complete HR processes, not just single tasks, but full
+    workflows from start to finish.
+  </p>
 
-  <div class="card">
-    <h3>Workflow 2: Difficult Conversation</h3>
-    <p>Steps 1–5 as rewritten.</p>
-  </div>
+  <h3>Workflow 1: Building a Job Description (15 minutes)</h3>
 
-  <div class="card">
-    <h3>Workflow 3: Engagement Survey</h3>
-    <p>Steps 1–5 as rewritten.</p>
-  </div>
+  <h4>Step 1: Gather inputs (3 minutes)</h4>
+  <p>
+    Collect the role title, department, key responsibilities from the hiring manager, required versus preferred
+    qualifications, team context, and compensation range.
+  </p>
+
+  <h4>Step 2: Draft with AI (5 minutes)</h4>
+  <p>
+    Use the Job Description prompt from Section 05. Paste your inputs as context and generate the first draft.
+  </p>
+
+  <h4>Step 3: Review for bias (3 minutes)</h4>
+  <p>
+    Ask the AI: “Review this job description for gendered, ableist, or exclusionary language and suggest replacements.”
+    Apply the suggested edits.
+  </p>
+
+  <h4>Step 4: Hiring manager review (2 minutes)</h4>
+  <p>
+    Send the draft to the hiring manager for an accuracy check on responsibilities and qualifications.
+  </p>
+
+  <h4>Step 5: Finalize and post (2 minutes)</h4>
+  <p>
+    Incorporate feedback, complete a final read-through, and post to your ATS and job boards.
+  </p>
+
+  <h3>Workflow 2: Preparing for a Difficult Conversation (20 minutes)</h3>
+
+  <h4>Step 1: Define the situation (3 minutes)</h4>
+  <p>
+    Write a brief, anonymized description of the situation, the pattern of behavior, and the goal of the upcoming
+    conversation.
+  </p>
+
+  <h4>Step 2: Get AI support (5 minutes)</h4>
+  <p>
+    Use the Manager Conversation Preparation prompt from Section 05. Ask for an opening statement, probing
+    questions, and key messages to deliver.
+  </p>
+
+  <h4>Step 3: Anticipate reactions (5 minutes)</h4>
+  <p>
+    Ask the AI: “What are three ways this employee might respond, and how should I address each one constructively?”
+  </p>
+
+  <h4>Step 4: Practice (5 minutes)</h4>
+  <p>
+    Role-play the conversation with a trusted colleague or coach and refine your language and approach.
+  </p>
+
+  <h4>Step 5: Document the outcome (2 minutes)</h4>
+  <p>
+    After the conversation, use AI to help draft a follow-up summary email with agreed-upon action items.
+  </p>
+
+  <h3>Workflow 3: Engagement Survey Analysis (30 minutes)</h3>
+
+  <h4>Step 1: Export and anonymize (5 minutes)</h4>
+  <p>
+    Export survey results from your platform and remove all personally identifiable information before proceeding.
+  </p>
+
+  <h4>Step 2: Quantitative summary (5 minutes)</h4>
+  <p>
+    Paste scores by category. Ask the AI: “Summarize these scores, highlighting the top three strengths and top three
+    concerns.”
+  </p>
+
+  <h4>Step 3: Qualitative themes (10 minutes)</h4>
+  <p>
+    Paste batches of anonymized open-text comments. Ask the AI to identify themes, assess sentiment, and pull
+    representative quotes.
+  </p>
+
+  <h4>Step 4: Synthesize insights (5 minutes)</h4>
+  <p>
+    Ask the AI to combine quantitative and qualitative findings into a one-page executive summary with recommended
+    focus areas.
+  </p>
+
+  <h4>Step 5: Action planning (5 minutes)</h4>
+  <p>
+    Use AI to draft a “You Said, We Will” communication showing employees their voice was heard and action is
+    underway.
+  </p>
+
+  <div class="page-footer">Page 11 — 2026 — Heather Limke</div>
 </section>
 
-<!-- SECTION 07 -->
-<section id="checklist" class="section">
+<section class="section" id="checklist">
+  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
   <h2>07 Getting Started Checklist</h2>
 
-  <div class="card">
-    <h3>Phase 1: Foundation</h3>
-    <ul>
-      <li>Read policy</li>
-      <li>Select tool</li>
-      <li>Practice CLEAR</li>
-    </ul>
-  </div>
+  <p>
+    Use this checklist to launch your AI practice as a people leader with confidence and responsibility. Work through each
+    phase at your own pace.
+  </p>
 
-  <div class="card">
-    <h3>Phase 2: Practice</h3>
-    <ul>
-      <li>Draft JD</li>
-      <li>Run workflow</li>
-      <li>Collect feedback</li>
-    </ul>
-  </div>
+  <h3>Phase 1: Foundation (Week 1)</h3>
+  <ul>
+    <li>Read your organization's AI usage policy or ask your IT or Legal team what is permitted</li>
+    <li>Select one AI tool approved for use at your organization and create an account</li>
+    <li>Review the CLEAR Framework in Section 02 and practice writing one prompt</li>
+    <li>Identify one low-stakes HR task you can use to experiment with AI this week</li>
+    <li>Share this guide with two colleagues on your HR team</li>
+  </ul>
 
-  <div class="card">
-    <h3>Phase 3: Scale</h3>
-    <ul>
-      <li>Build prompt library</li>
-      <li>Train team</li>
-      <li>Document decisions</li>
-    </ul>
-  </div>
+  <h3>Phase 2: Practice (Weeks 2 through 4)</h3>
+  <ul>
+    <li>Use AI to draft one job description and review it for bias before sharing</li>
+    <li>Try the Engagement Survey Analysis workflow using anonymized past data</li>
+    <li>Use the Difficult Conversation Preparation workflow before your next challenging meeting</li>
+    <li>Collect feedback from one hiring manager on AI-assisted content quality</li>
+    <li>Identify one repeating HR task that AI could help you do faster or better</li>
+  </ul>
 
-  <p class="note">Start small, stay human, and build confidence through repetition.</p>
+  <h3>Phase 3: Scale (Month 2 and Beyond)</h3>
+  <ul>
+    <li>Build a shared prompt library for your HR team using the Sample Prompts in Section 05</li>
+    <li>Introduce the CLEAR Framework to your HR team in a brief training session</li>
+    <li>Establish a simple documentation practice for AI-assisted decisions</li>
+    <li>Stay current by dedicating 30 minutes per week to reading about AI developments in HR</li>
+    <li>Advocate for an organizational AI policy if one does not yet exist</li>
+    <li>Measure time saved and quality improvements to build the business case for broader AI adoption</li>
+  </ul>
+
+  <p class="note">
+    Remember: Progress matters more than perfection. Start small, stay curious, and bring your team along.
+    The most effective AI-powered HR teams are not the ones who move fastest. They are the ones
+    who move most thoughtfully, keeping their people at the center of every decision.
+  </p>
+
+  <div class="page-footer">Page 12 — 2026 — Heather Limke</div>
 </section>
 
-<!-- SECTION 08 -->
-<section id="about" class="section alt">
+<section class="section alt" id="about">
+  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
   <h2>08 About Heather</h2>
 
   <p>
-    Heather Limke is a People & Culture Leader with deep experience across HR, organizational design,
-    and AI integration.
+    Heather Limke is a People and Culture Leader with extensive experience building and scaling high-performing HR
+    functions across fast-growth and enterprise organizations. Her work sits at the intersection of human-centered
+    leadership, organizational design, and emerging technology, with a particular focus on making AI practical and
+    accessible for HR practitioners.
+  </p>
+
+  <p>
+    Heather believes that the best HR leaders are those who combine deep empathy with strategic acumen. She brings
+    both to her work every day, and to the resources she creates for the broader people leadership community.
   </p>
 
   <div class="about-grid">
     <div class="about-card">
-      <h3>Expertise</h3>
+      <h3>Areas of Expertise</h3>
       <ul>
-        <li>People strategy</li>
-        <li>AI in HR</li>
-        <li>Leadership development</li>
-        <li>Talent acquisition</li>
-        <li>Employee experience</li>
+        <li>People strategy, organizational design, and workforce planning</li>
+        <li>HR technology, AI integration, and digital transformation in HR</li>
+        <li>Leadership development and executive coaching</li>
+        <li>Talent acquisition strategy and employer branding</li>
+        <li>Employee experience, engagement, and culture development</li>
+        <li>Change management and organizational effectiveness</li>
       </ul>
     </div>
 
     <div class="about-card">
-      <h3>Contact</h3>
+      <h3>Connect with Heather</h3>
       <p>Email: limke.heather@gmail.com</p>
       <p>Location: Issaquah, WA</p>
+      <p>Focus: Human-Centered AI in HR | People Strategy | Leadership Development</p>
     </div>
   </div>
 
   <div class="score-box">
     <p>
-      “The most powerful thing AI can do for HR is give us back the time and energy to be more human.”
+      "The most powerful thing AI can do for HR is give us back the time and energy
+      to be more human: more present, more empathetic, and more strategic."
+      — Heather Limke
+    </p>
+    <p class="note">
+      This guide is intended for educational and professional development purposes. It does not constitute legal advice.
+      Please consult qualified legal counsel regarding AI use in employment decisions in your jurisdiction.
     </p>
   </div>
+
+  <div class="page-footer">Page 13 — 2026 — Heather Limke</div>
 </section>
 
 <footer class="site-footer">
@@ -814,3 +1086,4 @@
 
 </body>
 </html>
+
