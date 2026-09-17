@@ -165,3 +165,6 @@ Now produce the requested output using the above CLEAR structure.
   resultsSection.style.display = "block";
 });
   
+
+
+                                                             
