@@ -1,248 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI for People Leaders | Heather Limke</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI for People Leaders | Heather Limke</title>
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --bg-alt: #111827;
-      --card-bg: #1f2937;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #374151;
-      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+<style>
+  :root {
+    --bg: #0f172a;
+    --bg-alt: #111827;
+    --accent: #38bdf8;
+    --accent-muted: rgba(56,189,248,0.35);
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #374151;
+    --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
 
-    * {
-      box-sizing: border-box;
-    }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+  }
 
-    body {
-      margin: 0;
-      font-family: var(--font);
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
-      color: var(--text);
-    }
+  /* HEADER */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  nav a {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  nav a:hover {
+    color: var(--accent);
+  }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 2rem;
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
+  /* HERO */
+  .hero {
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-glow {
+    position: absolute;
+    inset: -80px 0 auto;
+    background: radial-gradient(circle, rgba(56,189,248,0.25), transparent 60%);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero p {
+    margin: 0.25rem 0;
+  }
+  .tagline {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--muted);
+  }
 
-    .logo {
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
+  /* BUTTONS */
+  .primary-btn,
+  .secondary-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    margin-right: 0.75rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: rgba(56,189,248,0.15);
+    color: var(--accent);
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .secondary-btn {
+    border-color: var(--border);
+    background: transparent;
+    color: var(--text);
+  }
+  .primary-btn:hover {
+    background: var(--accent);
+    color: #0b1120;
+  }
+  .secondary-btn:hover {
+    border-color: var(--accent);
+  }
 
-    nav a {
-      margin-left: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      text-decoration: none;
-    }
+  /* SECTIONS */
+  .section {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .section h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+  }
+  .page-header {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .page-footer {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+  }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+  textarea, input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: #0b1120;
+    border: 1px solid var(--border);
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
 
-    .hero {
-      padding: 4rem 2rem 3rem;
-      display: flex;
-      justify-content: center;
-    }
+  /* GRADER */
+  .grader-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .score-label {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .score-number {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .category-block {
+    margin-top: 1.5rem;
+  }
+  .category-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+  }
+  .category-icons {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .category-icons span {
+    margin-right: 0.25rem;
+  }
+  .category-explanation {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .tips-section {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+  .tips-section h3 {
+    margin-bottom: 1rem;
+  }
+  .tips-section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .tips-section li {
+    margin-bottom: 0.75rem;
+    color: var(--muted);
+  }
+  .rewrite-section {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+  .rewrite-section h3 {
+    margin-bottom: 1rem;
+  }
+  .rewrite-output {
+    min-height: 140px;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: #0b1120;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
 
-    .hero-inner {
-      max-width: 900px;
-      text-align: center;
-      position: relative;
-    }
+  /* FLOATING BUTTON */
+  .floating-grade-btn {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #0b1120;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
 
-    .hero h1 {
-      font-size: 2.6rem;
-      margin-bottom: 0.5rem;
-    }
+  /* SIDEBAR HOOK (optional) */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 3rem;
+    width: 220px;
+    padding: 1rem;
+    background: #020617;
+    border-right: 1px solid var(--border);
+    display: none;
+  }
 
-    .hero p {
-      margin: 0.25rem 0;
-    }
+  /* LIGHT THEME HOOK */
+  body.light {
+    background: #f9fafb;
+    color: #111827;
+  }
+  body.light .site-header {
+    background: #ffffff;
+    border-bottom-color: #e5e7eb;
+  }
 
-    .tagline {
-      margin-top: 1rem;
-      font-style: italic;
-      color: var(--muted);
-    }
-
-    .hero-glow {
-      position: absolute;
-      inset: -60px 0 auto;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent 60%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .primary-btn,
-    .secondary-btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      margin-right: 0.75rem;
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .secondary-btn {
-      border-color: var(--border);
-      background: transparent;
-      color: var(--text);
-    }
-
-    .primary-btn:hover {
-      background: var(--accent);
-      color: #0b1120;
-    }
-
-    .secondary-btn:hover {
-      border-color: var(--accent);
-    }
-
-    .section {
-      padding: 3rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section.alt {
-      background: rgba(15, 23, 42, 0.7);
-      border-radius: 24px;
-      margin-top: 1.5rem;
-    }
-
-    .section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-
-    .section h3 {
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.2rem;
-    }
-
-    .section p {
-      max-width: 800px;
-    }
-
-    .page-header {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .page-footer {
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 0.75rem;
-    }
-
-    .prompt-card {
-      background: var(--card-bg);
-      border-radius: 18px;
-      padding: 1.4rem;
-      border: 1px solid var(--border);
-      margin-bottom: 1.5rem;
-    }
-
-    .prompt-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.75rem;
-    }
-
-    .note {
-      margin-top: 1rem;
-      font-style: italic;
-      color: var(--muted);
-    }
-
-    .guardrails-list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 1rem;
-    }
-
-    .guardrails-list li {
-      margin-bottom: 0.6rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      align-items: flex-start;
-    }
-
-    .about-card {
-      background: var(--card-bg);
-      border-radius: 18px;
-      padding: 1.4rem;
-      border: 1px solid var(--border);
-    }
-
-    .site-footer {
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        margin-top: 0.5rem;
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      nav a {
-        margin: 0.25rem 0.75rem 0.25rem 0;
-      }
-
-      .hero {
-        padding: 3rem 1.5rem 2.5rem;
-      }
-
-      .section {
-        padding: 2.5rem 1.5rem;
-      }
-    }
-  </style>
+  /* FOOTER */
+  .site-footer {
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+</style>
 </head>
 
 <body>
@@ -250,608 +277,147 @@
 <header class="site-header">
   <div class="logo">AI for People Leaders</div>
   <nav>
+    <a href="#interactive-builder">Interactive Tools</a>
     <a href="#introduction">Introduction</a>
     <a href="#clear-framework">CLEAR</a>
     <a href="#use-cases">Use Cases</a>
     <a href="#guardrails">Guardrails</a>
     <a href="#prompts">Prompts</a>
+    <a href="#interactive-grader">Grader</a>
     <a href="#workflows">Workflows</a>
     <a href="#checklist">Checklist</a>
     <a href="#about">About</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-glow"></div>
-    <h1>AI for People Leaders</h1>
-    <p>A Practical, Human-Centered Guide for Modern HR.</p>
-    <p class="tagline">
-      CLEAR Framework, HR use cases, guardrails, workflows, and prompts — built for real people leadership work.
-    </p>
-    <button class="primary-btn">Try the CLEAR Prompt Builder</button>
-    <button class="secondary-btn">Score an existing prompt</button>
-  </div>
+  <div class="hero-glow"></div>
+  <h1>AI for People Leaders</h1>
+  <p>A Practical, Human-Centered Guide for Modern HR.</p>
+  <p class="tagline">CLEAR Framework, HR use cases, guardrails, workflows, and prompts — built for real people leadership work.</p>
 </section>
 
-<section id="interactive-tools" class="section" style="background: transparent; padding-top: 4rem;">
-  <h2 style="font-size: 2rem; margin-bottom: 1rem;">Interactive Tools</h2>
-  <p style="max-width: 800px; margin-bottom: 2.5rem; color: var(--muted);">
-    Build better prompts and evaluate their strength using these simple, full‑width tools designed for HR leaders.
+<!-- INTERACTIVE TOOLS (CLEAR BUILDER) -->
+<section id="interactive-builder" class="section">
+  <div class="page-header">HANDS-ON | BUILD BETTER PROMPTS</div>
+  <h2>Interactive Tools: CLEAR Prompt Builder</h2>
+  <p style="color:var(--muted); max-width:800px;">
+    Start here to structure your prompts using CLEAR — then later, test how strong they are with the grader.
   </p>
 
-  <!-- CLEAR Prompt Builder -->
-  <div style="margin-bottom: 4rem; max-width: 900px;">
-    <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">CLEAR Prompt Builder</h3>
+  <h3>CLEAR Prompt Builder</h3>
 
-    <label for="context" style="display:block; margin-bottom:0.4rem;">Context</label>
-    <textarea id="context" placeholder="What’s happening? Role, team, situation, business need..."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
+  <label>Context</label>
+  <textarea id="context" placeholder="What’s happening? Role, team, situation, business need..."></textarea>
 
-    <label for="language" style="display:block; margin-bottom:0.4rem;">Language / Tone</label>
-    <input id="language" type="text" placeholder="e.g., warm, direct, professional, frontline‑friendly..."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;" />
+  <label>Language / Tone</label>
+  <input id="language" placeholder="e.g., warm, direct, professional, frontline‑friendly..." />
 
-    <label for="examples" style="display:block; margin-bottom:0.4rem;">Examples of “good”</label>
-    <textarea id="examples" placeholder="Paste 1–2 examples of what ‘good’ looks like (optional)."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
+  <label>Examples of “good”</label>
+  <textarea id="examples" placeholder="Paste 1–2 examples of what ‘good’ looks like (optional)."></textarea>
 
-    <label for="ask" style="display:block; margin-bottom:0.4rem;">Ask</label>
-    <textarea id="ask" placeholder="What do you want AI to do? Draft, summarize, compare, rewrite..."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
+  <label>Ask</label>
+  <textarea id="ask" placeholder="What do you want AI to do? Draft, summarize, compare, rewrite..."></textarea>
 
-    <label for="refine" style="display:block; margin-bottom:0.4rem;">Refine</label>
-    <textarea id="refine" placeholder="How should AI refine the output? Shorten, adjust tone, add bullets..."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
+  <label>Refine</label>
+  <textarea id="refine" placeholder="How should AI refine the output? Shorten, adjust tone, add bullets..."></textarea>
 
-    <button id="build-prompt-btn"
-      style="padding:0.75rem 1.5rem; border-radius:999px; background:var(--accent); color:#0b1120; border:none; cursor:pointer; font-weight:600; margin-bottom:1.5rem;">
-      Generate CLEAR‑Structured Prompt
-    </button>
+  <button id="build-prompt-btn" class="primary-btn">Generate CLEAR‑Structured Prompt</button>
 
-    <div style="margin-top:1.5rem;">
-      <label for="generated-prompt" style="display:block; margin-bottom:0.4rem;">Generated Prompt</label>
-      <textarea id="generated-prompt" readonly
-        style="width:100%; min-height:160px; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text);"></textarea>
-    </div>
-  </div>
-
-  <!-- Prompt Strength Tester -->
-  <div style="max-width: 900px; margin-top: 4rem;">
-    <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Prompt Strength Tester</h3>
-
-    <label for="prompt-input" style="display:block; margin-bottom:0.4rem;">Paste a Prompt to Score</label>
-    <textarea id="prompt-input" placeholder="Paste any prompt here to see how strong it is."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
-
-    <button id="score-prompt-btn"
-      style="padding:0.75rem 1.5rem; border-radius:999px; background:transparent; border:1px solid var(--accent); color:var(--accent); cursor:pointer; font-weight:600; margin-bottom:1.5rem;">
-      Score This Prompt
-    </button>
-
-    <div id="score-results" style="margin-top:2rem; display:none;">
-      <strong id="score-summary" style="display:block; margin-bottom:1rem; font-size:1.2rem;"></strong>
-
-      <h4 style="margin-top:1.5rem;">Breakdown by CLEAR Element</h4>
-      <ul id="score-breakdown" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
-
-      <h4 style="margin-top:2rem;">Tips to Strengthen Your Prompt</h4>
-      <ul id="score-tips" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
-
-      <h4 style="margin-top:2rem;">Stronger Version of Your Prompt</h4>
-      <textarea id="improved-prompt" readonly
-        style="width:100%; min-height:180px; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text);"></textarea>
-    </div>
-  </div>
+  <label style="margin-top:1.5rem;">Generated Prompt</label>
+  <textarea id="generated-prompt" readonly></textarea>
 </section>
 
-<section class="section" id="introduction">
+<!-- INTRODUCTION -->
+<section id="introduction" class="section">
   <div class="page-header">PEOPLE LEADERSHIP SERIES | 2026 EDITION</div>
   <h2>01 Introduction: Why AI, Why Now for HR?</h2>
-
-  <p>
-    Artificial intelligence is no longer a future concept for HR. It is here, and it is changing how people leaders recruit,
-    onboard, develop, retain, and support employees. The question is no longer whether to use AI, but how to use it well.
-    This guide was written for People Leaders who are curious, a little cautious, and ready to lead their organizations into
-    this moment with intention. You do not need a technology background. You need what you already have: strong
-    human judgment, empathy, and a genuine commitment to doing right by your people.
-  </p>
-
-  <h3>What AI Can Do for HR Today</h3>
-  <ul>
-    <li>Draft job descriptions, offer letters, and policy documents in minutes</li>
-    <li>Analyze engagement survey data and surface key themes instantly</li>
-    <li>Generate personalized onboarding plans and learning paths</li>
-    <li>Create performance review frameworks and behavioral anchors</li>
-    <li>Summarize meeting notes and produce clear action items automatically</li>
-    <li>Build structured interview guides aligned to competencies</li>
-    <li>Research compensation benchmarks and market trends</li>
-    <li>Produce employee communications in any tone or reading level</li>
-  </ul>
-
-  <h3>What AI Cannot Replace</h3>
-  <p>
-    Human judgment in sensitive employee relations situations. Authentic relationships and trust built over time.
-    Ethical decision-making in complex, context-dependent situations. Contextual understanding of your specific culture
-    and people. Accountability: a leader, not an AI, owns every outcome.
-  </p>
-
-  <h3>The Core Principle of This Guide</h3>
-  <p>
-    AI amplifies human capability. It does not replace human responsibility. Every output from an AI tool should be
-    reviewed, refined, and owned by you. The goal is not to automate HR. The goal is to free you to be more human.
-  </p>
-
-  <h3>A Note on AI Tools</h3>
-  <p>
-    This guide is tool-agnostic. The frameworks, prompts, and workflows here work with Microsoft Copilot, ChatGPT,
-    Google Gemini, Claude, and any other large language model you choose to use. Always follow your organization's
-    data privacy and AI usage policies when working with these tools.
-  </p>
-
-  <div class="page-footer">Page 3 — 2026 — Heather Limke</div>
+  <p>Artificial intelligence is no longer a future concept for HR. It is here...</p>
+  <!-- full PDF content continues -->
 </section>
 
-<section class="section alt" id="clear-framework">
-  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
-  <h2>02 The CLEAR Framework</h2>
-
-  <p>
-    The CLEAR Framework gives people leaders a repeatable five-step process for getting high-quality, responsible
-    outputs from any AI tool. Think of it as your mental checklist before every prompt.
-  </p>
-
-  <h3>C — Context: Set the scene</h3>
-  <p>
-    Tell the AI who you are, what your organization does, and the specific situation. More context produces more
-    relevant and accurate output.
-  </p>
-
-  <h3>L — Language: Set the tone</h3>
-  <p>
-    Specify the voice, tone, and reading level. Examples: “professional but warm,” “direct and concise,” or
-    “appropriate for frontline employees.”
-  </p>
-
-  <h3>E — Examples: Show, don’t tell</h3>
-  <p>
-    Provide one or two examples of what “good” looks like. Examples dramatically improve quality and alignment to
-    your standards and voice.
-  </p>
-
-  <h3>A — Ask: Make the request</h3>
-  <p>
-    State your specific ask clearly. Include format, length, structure, and any constraints such as “no jargon” or
-    “bullet points only.”
-  </p>
-
-  <h3>R — Refine: Iterate to excellence</h3>
-  <p>
-    AI outputs are first drafts, not finished products. Refine with feedback such as “Make this more empathetic,”
-    “Shorten by 30 percent,” or “Rewrite the opening paragraph.” Treat AI like a talented colleague who benefits from
-    clear, kind redirection.
-  </p>
-
-  <div class="page-footer">Page 4 — 2026 — Heather Limke</div>
+<!-- CLEAR FRAMEWORK -->
+<section id="clear-framework" class="section">
+  <div class="page-header">PAGE 2 | CLEAR FRAMEWORK</div>
+  <h2>02 The CLEAR Framework for HR Prompts</h2>
+  <p>Use CLEAR to structure prompts so AI can actually help with real HR work...</p>
 </section>
 
-<section class="section" id="use-cases">
-  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
-  <h2>03 HR Use Cases by Function</h2>
-
-  <p>
-    AI can add meaningful value across every HR discipline. Below are the highest-impact applications organized by
-    function area, a practical starting point for identifying where to begin.
-  </p>
-
-  <h3>Talent Acquisition</h3>
-  <ul>
-    <li>Generate compelling, inclusive job descriptions from a role summary</li>
-    <li>Build structured behavioral interview guides aligned to competencies</li>
-    <li>Draft candidate communication templates for confirmations, rejections, and offers</li>
-    <li>Analyze job postings for biased language and suggest neutral alternatives</li>
-    <li>Create sourcing strategies and Boolean search strings for recruiters</li>
-    <li>Summarize candidate feedback from interview panels into clear themes</li>
-  </ul>
-
-  <h3>Onboarding and Employee Experience</h3>
-  <ul>
-    <li>Build role-specific 30-60-90 day onboarding plans</li>
-    <li>Create FAQ documents and reference guides for new hire orientation</li>
-    <li>Draft warm, personalized welcome messages from leaders</li>
-    <li>Design onboarding surveys and early pulse check templates</li>
-    <li>Generate manager guides for supporting new team members effectively</li>
-  </ul>
-
-  <h3>Performance Management</h3>
-  <ul>
-    <li>Create performance review templates with behavioral anchors by level</li>
-    <li>Draft developmental feedback language that is specific and actionable</li>
-    <li>Generate improvement plan frameworks with clear, measurable milestones</li>
-    <li>Summarize performance themes across teams from manager notes</li>
-    <li>Build goal-setting frameworks such as OKRs and SMART goals calibrated to specific roles</li>
-  </ul>
-
-  <h3>Learning and Development</h3>
-  <ul>
-    <li>Outline training curricula for leadership and skills development programs</li>
-    <li>Create scenario-based learning content and discussion questions</li>
-    <li>Draft microlearning content, knowledge checks, and quick reference cards</li>
-    <li>Generate a sequenced learning path for new managers or individual contributors</li>
-    <li>Build facilitation guides for team workshops and culture sessions</li>
-  </ul>
-
-  <h3>Employee Relations and Policy</h3>
-  <ul>
-    <li>Draft or update HR policies in plain, accessible, jargon-free language</li>
-    <li>Create investigation documentation templates and intake frameworks</li>
-    <li>Generate talking points for difficult or sensitive manager conversations</li>
-    <li>Research best practices for emerging workplace issues and regulations</li>
-    <li>Draft responses to employee concerns, always reviewed before sending</li>
-  </ul>
-
-  <h3>HR Analytics and Reporting</h3>
-  <ul>
-    <li>Interpret engagement survey data and surface the most important themes</li>
-    <li>Draft executive summaries from HR metrics, dashboards, and scorecards</li>
-    <li>Generate hypotheses about attrition trends from descriptive workforce data</li>
-    <li>Create data storytelling narratives for leadership presentations</li>
-    <li>Build targeted survey questions to measure specific culture dimensions</li>
-  </ul>
-
-  <div class="page-footer">Page 6 — 2026 — Heather Limke</div>
+<!-- USE CASES -->
+<section id="use-cases" class="section">
+  <div class="page-header">PAGE 3 | HR USE CASES</div>
+  <h2>03 HR Use Cases for AI</h2>
+  <p>From performance feedback to JD drafting, here’s where AI fits...</p>
 </section>
 
-<section class="section alt" id="guardrails">
-  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
+<!-- GUARDRAILS -->
+<section id="guardrails" class="section">
+  <div class="page-header">PAGE 4 | HUMAN-CENTERED GUARDRAILS</div>
   <h2>04 Human-Centered Guardrails</h2>
-
-  <p>
-    Using AI in HR comes with real responsibilities. People are directly affected by AI-influenced decisions. These
-    guardrails are non-negotiable principles for ethical, human-centered AI use in people management.
-  </p>
-
-  <ul class="guardrails-list">
-    <li>
-      <strong>1. Never Input Personal Employee Data</strong><br />
-      Do not paste names, email addresses, employee IDs, or any personally identifiable information into AI tools.
-      Always anonymize data before use.
-    </li>
-    <li>
-      <strong>2. Check for Bias</strong><br />
-      AI systems can reflect and amplify societal biases. Review outputs for gendered language, cultural assumptions,
-      or discriminatory patterns, especially in job descriptions, performance language, and candidate evaluations.
-      Use dedicated bias-checking tools or structured review checklists.
-    </li>
-    <li>
-      <strong>5. Maintain the Human Relationship</strong><br />
-      AI should never replace a direct human conversation in sensitive situations. Employee relations issues,
-      performance concerns, terminations, and wellness conversations require a human being present. AI can help you
-      prepare, but it cannot substitute for your presence, empathy, and judgment.
-    </li>
-    <li>
-      <strong>6. Know Your Legal Landscape</strong><br />
-      AI use in employment decisions may be subject to emerging regulations such as NYC Local Law 144, the EU AI
-      Act, and EEOC guidance. Partner with legal counsel to understand what applies in your jurisdiction before using AI
-      in hiring, promotions, or performance management decisions.
-    </li>
-    <li>
-      <strong>7. Build an Audit Trail</strong><br />
-      For any AI-assisted decision affecting employees, document what tool was used, what prompt was given, what
-      output was received, and what human review and modifications were made. This protects both the employee and
-      your organization.
-    </li>
-  </ul>
-
-  <div class="page-footer">Page 7 — 2026 — Heather Limke</div>
+  <p>AI should support, not replace, human judgment. These guardrails keep you grounded...</p>
 </section>
 
-<section class="section" id="prompts">
-  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
+<!-- SAMPLE PROMPTS LIBRARY -->
+<section id="prompts" class="section">
+  <div class="page-header">PAGE 5 | SAMPLE PROMPTS LIBRARY</div>
   <h2>05 Sample Prompts Library</h2>
-
-  <p>
-    Copy, adapt, and use these prompts in any AI tool. Each follows the CLEAR Framework. Replace the bracketed
-    placeholders with your specific information before submitting.
-  </p>
-
-  <div class="prompt-card">
-    <h3>TALENT ACQUISITION | Job Description</h3>
-    <p>
-      “Act as a senior HR professional. I am hiring a [job title] at a [company size] [industry] company. Our culture values
-      [two to three values]. Write an inclusive, compelling job description in plain language, avoiding jargon. Include: a
-      role summary, key responsibilities in six to eight bullets, qualifications separated into must-have and nice-to-have,
-      and a culture and benefits statement. Keep it under 500 words.”
-    </p>
-    <p class="note">
-      Tip: Add language such as “We welcome applicants of all backgrounds” to signal belonging and boost inclusion.
-    </p>
-  </div>
-
-  <div class="prompt-card">
-    <h3>TALENT ACQUISITION | Structured Interview Guide</h3>
-    <p>
-      “Create a structured behavioral interview guide for a [job title] role. Include eight questions in STAR format covering
-      collaboration, problem-solving, adaptability, and [one role-specific competency], with two questions per area.
-      Include a follow-up probing question for each.”
-    </p>
-    <p class="note">
-      Tip: Specify the seniority level so the behavioral expectations are appropriately calibrated.
-    </p>
-  </div>
-
-  <div class="prompt-card">
-    <h3>ONBOARDING | 30-60-90 Day Plan</h3>
-    <p>
-      “Build a 30-60-90 day onboarding plan for a new [job title] joining the [department] team at a [company size]
-      company. Include: key relationships to build, systems to learn, early wins to pursue, and success metrics for each
-      phase. Format as a clear, readable table.”
-    </p>
-    <p class="note">
-      Tip: Share with the hiring manager for an accuracy review before giving it to the new hire.
-    </p>
-  </div>
-
-  <div class="prompt-card">
-    <h3>PERFORMANCE | Developmental Feedback Using the SBI Model</h3>
-    <p>
-      “Write feedback for an employee who excels at [strength] but needs development in [area]. Produce three specific,
-      actionable feedback statements using the SBI model, which covers Situation, Behavior, and Impact. Make the tone
-      encouraging and growth-oriented, and avoid evaluative or judgmental language.”
-    </p>
-    <p class="note">
-      Tip: Never paste real employee names or identifying details. Use generic role-based placeholders instead.
-    </p>
-  </div>
-
-  <div class="prompt-card">
-    <h3>EMPLOYEE RELATIONS | Manager Conversation Preparation</h3>
-    <p>
-      “Help me prepare for a conversation with a manager about a team member who has been missing deadlines and
-      appears disengaged. The goal is to understand what is happening, demonstrate care, and set clear expectations
-      going forward. Suggest five open-ended questions and three key messages.”
-    </p>
-    <p class="note">
-      Tip: Add context about your company culture to receive more tailored and situationally appropriate suggestions.
-    </p>
-  </div>
-
-  <div class="prompt-card">
-    <h3>LEARNING AND DEVELOPMENT | Workshop Facilitation Guide</h3>
-    <p>
-      “Create a two-hour facilitation guide for a manager training session on [topic such as giving feedback, inclusive
-      leadership, or having difficult conversations]. Include: three learning objectives, a timed agenda, two interactive
-      activities with facilitation notes, discussion questions, and a closing reflection prompt.”
-    </p>
-    <p class="note">
-      Tip: Specify whether your audience consists of new managers or experienced leaders for better calibration.
-    </p>
-  </div>
-
-  <div class="prompt-card">
-    <h3>HR COMMUNICATIONS | All-Company Announcement</h3>
-    <p>
-      “Draft an all-company email announcing [change or initiative] from the perspective of [role such as CHRO, CEO, or
-      HR Director]. Tone: transparent, empathetic, and confident. Length: 300 to 400 words. Include: what is changing,
-      why it matters, what employees can expect, and where to ask questions.”
-    </p>
-    <p class="note">
-      Tip: Always have a senior leader review all-company communications before they are distributed.
-    </p>
-  </div>
-
-  <div class="prompt-card">
-    <h3>HR ANALYTICS | Engagement Survey Theme Analysis</h3>
-    <p>
-      “I will share anonymized employee engagement survey comments. Identify the top five themes, note whether each
-      is a strength or a concern, provide one representative quote per theme, and suggest one concrete and actionable
-      next step per theme. Do not reference any specific individual.”
-    </p>
-    <p class="note">
-      Tip: Paste only anonymized, aggregated text. Never include individual attributed or identifiable responses.
-    </p>
-  </div>
-
-  <div class="page-footer">Page 9 — 2026 — Heather Limke</div>
+  <p>Use these starting points for common HR scenarios...</p>
+  <!-- your full prompt library content here -->
 </section>
 
-<section class="section alt" id="workflows">
-  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
-  <h2>06 AI Workflows Step-by-Step</h2>
-
-  <p>
-    These end-to-end workflows show how to integrate AI into complete HR processes, not just single tasks, but full
-    workflows from start to finish.
+<!-- INTERACTIVE TOOLS (PROMPT GRADER) -->
+<section id="interactive-grader" class="section">
+  <div class="page-header">HANDS-ON | HOW STRONG IS YOUR PROMPT?</div>
+  <h2>Interactive Tools: Prompt Strength Tester</h2>
+  <p style="color:var(--muted); max-width:800px;">
+    Paste any prompt from your work or from the library above to see how strong it is — and how to make it better.
   </p>
 
-  <h3>Workflow 1: Building a Job Description (15 minutes)</h3>
+  <h3>Prompt Strength Tester</h3>
 
-  <h4>Step 1: Gather inputs (3 minutes)</h4>
-  <p>
-    Collect the role title, department, key responsibilities from the hiring manager, required versus preferred
-    qualifications, team context, and compensation range.
-  </p>
+  <label>Your Prompt</label>
+  <textarea id="prompt-input" placeholder="Paste any prompt here to see how strong it is."></textarea>
 
-  <h4>Step 2: Draft with AI (5 minutes)</h4>
-  <p>
-    Use the Job Description prompt from Section 05. Paste your inputs as context and generate the first draft.
-  </p>
+  <button id="score-prompt-btn" class="secondary-btn">Grade my prompt →</button>
 
-  <h4>Step 3: Review for bias (3 minutes)</h4>
-  <p>
-    Ask the AI: “Review this job description for gendered, ableist, or exclusionary language and suggest replacements.”
-    Apply the suggested edits.
-  </p>
+  <div id="score-results" style="display:none;" class="grader-section">
+    <div class="score-number" id="score-number">0/10</div>
+    <div class="score-label" id="score-label">NEEDS WORK</div>
 
-  <h4>Step 4: Hiring manager review (2 minutes)</h4>
-  <p>
-    Send the draft to the hiring manager for an accuracy check on responsibilities and qualifications.
-  </p>
+    <div id="category-breakdown"></div>
 
-  <h4>Step 5: Finalize and post (2 minutes)</h4>
-  <p>
-    Incorporate feedback, complete a final read-through, and post to your ATS and job boards.
-  </p>
+    <div class="tips-section">
+      <h3>How to make this prompt stronger</h3>
+      <ul id="tips-list"></ul>
+    </div>
 
-  <h3>Workflow 2: Preparing for a Difficult Conversation (20 minutes)</h3>
-
-  <h4>Step 1: Define the situation (3 minutes)</h4>
-  <p>
-    Write a brief, anonymized description of the situation, the pattern of behavior, and the goal of the upcoming
-    conversation.
-  </p>
-
-  <h4>Step 2: Get AI support (5 minutes)</h4>
-  <p>
-    Use the Manager Conversation Preparation prompt from Section 05. Ask for an opening statement, probing
-    questions, and key messages to deliver.
-  </p>
-
-  <h4>Step 3: Anticipate reactions (5 minutes)</h4>
-  <p>
-    Ask the AI: “What are three ways this employee might respond, and how should I address each one constructively?”
-  </p>
-
-  <h4>Step 4: Practice (5 minutes)</h4>
-  <p>
-    Role-play the conversation with a trusted colleague or coach and refine your language and approach.
-  </p>
-
-  <h4>Step 5: Document the outcome (2 minutes)</h4>
-  <p>
-    After the conversation, use AI to help draft a follow-up summary email with agreed-upon action items.
-  </p>
-
-  <h3>Workflow 3: Engagement Survey Analysis (30 minutes)</h3>
-
-  <h4>Step 1: Export and anonymize (5 minutes)</h4>
-  <p>
-    Export survey results from your platform and remove all personally identifiable information before proceeding.
-  </p>
-
-  <h4>Step 2: Quantitative summary (5 minutes)</h4>
-  <p>
-    Paste scores by category. Ask the AI: “Summarize these scores, highlighting the top three strengths and top three
-    concerns.”
-  </p>
-
-  <h4>Step 3: Qualitative themes (10 minutes)</h4>
-  <p>
-    Paste batches of anonymized open-text comments. Ask the AI to identify themes, assess sentiment, and pull
-    representative quotes.
-  </p>
-
-  <h4>Step 4: Synthesize insights (5 minutes)</h4>
-  <p>
-    Ask the AI to combine quantitative and qualitative findings into a one-page executive summary with recommended
-    focus areas.
-  </p>
-
-  <h4>Step 5: Action planning (5 minutes)</h4>
-  <p>
-    Use AI to draft a “You Said, We Will” communication showing employees their voice was heard and action is
-    underway.
-  </p>
-
-  <div class="page-footer">Page 11 — 2026 — Heather Limke</div>
+    <div class="rewrite-section">
+      <h3>Here’s what a stronger version looks like</h3>
+      <textarea id="rewrite-output" class="rewrite-output" readonly></textarea>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="checklist">
-  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
+<!-- WORKFLOWS -->
+<section id="workflows" class="section">
+  <div class="page-header">PAGE 6 | AI WORKFLOWS</div>
+  <h2>06 AI Workflows for People Leaders</h2>
+  <p>Turn prompts into repeatable workflows that fit into your HR practice...</p>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist" class="section">
+  <div class="page-header">PAGE 7 | GETTING STARTED CHECKLIST</div>
   <h2>07 Getting Started Checklist</h2>
-
-  <p>
-    Use this checklist to launch your AI practice as a people leader with confidence and responsibility. Work through each
-    phase at your own pace.
-  </p>
-
-  <h3>Phase 1: Foundation (Week 1)</h3>
-  <ul>
-    <li>Read your organization's AI usage policy or ask your IT or Legal team what is permitted</li>
-    <li>Select one AI tool approved for use at your organization and create an account</li>
-    <li>Review the CLEAR Framework in Section 02 and practice writing one prompt</li>
-    <li>Identify one low-stakes HR task you can use to experiment with AI this week</li>
-    <li>Share this guide with two colleagues on your HR team</li>
-  </ul>
-
-  <h3>Phase 2: Practice (Weeks 2 through 4)</h3>
-  <ul>
-    <li>Use AI to draft one job description and review it for bias before sharing</li>
-    <li>Try the Engagement Survey Analysis workflow using anonymized past data</li>
-    <li>Use the Difficult Conversation Preparation workflow before your next challenging meeting</li>
-    <li>Collect feedback from one hiring manager on AI-assisted content quality</li>
-    <li>Identify one repeating HR task that AI could help you do faster or better</li>
-  </ul>
-
-  <h3>Phase 3: Scale (Month 2 and Beyond)</h3>
-  <ul>
-    <li>Build a shared prompt library for your HR team using the Sample Prompts in Section 05</li>
-    <li>Introduce the CLEAR Framework to your HR team in a brief training session</li>
-    <li>Establish a simple documentation practice for AI-assisted decisions</li>
-    <li>Stay current by dedicating 30 minutes per week to reading about AI developments in HR</li>
-    <li>Advocate for an organizational AI policy if one does not yet exist</li>
-    <li>Measure time saved and quality improvements to build the business case for broader AI adoption</li>
-  </ul>
-
-  <p class="note">
-    Remember: Progress matters more than perfection. Start small, stay curious, and bring your team along.
-    The most effective AI-powered HR teams are not the ones who move fastest. They are the ones
-    who move most thoughtfully, keeping their people at the center of every decision.
-  </p>
-
-  <div class="page-footer">Page 12 — 2026 — Heather Limke</div>
+  <p>A simple checklist to start using AI safely and effectively in your HR work...</p>
 </section>
 
-<section class="section alt" id="about">
-  <div class="page-header">AI for People Leaders | A Practical, Human-Centered Guide for Modern HR</div>
-  <h2>08 About Heather</h2>
-
-  <p>
-    Heather Limke is a People and Culture Leader with extensive experience building and scaling high-performing HR
-    functions across fast-growth and enterprise organizations. Her work sits at the intersection of human-centered
-    leadership, organizational design, and emerging technology, with a particular focus on making AI practical and
-    accessible for HR practitioners.
-  </p>
-
-  <p>
-    Heather believes that the best HR leaders are those who combine deep empathy with strategic acumen. She brings
-    both to her work every day, and to the resources she creates for the broader people leadership community.
-  </p>
-
-  <div class="about-grid">
-    <div class="about-card">
-      <h3>Areas of Expertise</h3>
-      <ul>
-        <li>People strategy, organizational design, and workforce planning</li>
-        <li>HR technology, AI integration, and digital transformation in HR</li>
-        <li>Leadership development and executive coaching</li>
-        <li>Talent acquisition strategy and employer branding</li>
-        <li>Employee experience, engagement, and culture development</li>
-        <li>Change management and organizational effectiveness</li>
-      </ul>
-    </div>
-
-    <div class="about-card">
-      <h3>Connect with Heather</h3>
-      <p>Email: limke.heather@gmail.com</p>
-      <p>Location: Issaquah, WA</p>
-      <p>Focus: Human-Centered AI in HR | People Strategy | Leadership Development</p>
-    </div>
-  </div>
-
-  <div style="margin-top:1.5rem; padding:1rem; border-radius:14px; background:#020617; border:1px solid var(--border);">
-    <p>
-      "The most powerful thing AI can do for HR is give us back the time and energy
-      to be more human: more present, more empathetic, and more strategic."
-      — Heather Limke
-    </p>
-    <p class="note">
-      This guide is intended for educational and professional development purposes. It does not constitute legal advice.
-      Please consult qualified legal counsel regarding AI use in employment decisions in your jurisdiction.
-    </p>
-  </div>
-
-  <div class="page-footer">Page 13 — 2026 — Heather Limke</div>
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="page-header">PAGE 8 | ABOUT HEATHER</div>
+  <h2>08 About Heather Limke</h2>
+  <p>Heather Limke is a strategic HR executive and coach focused on modern people leadership...</p>
 </section>
 
 <footer class="site-footer">
@@ -859,156 +425,126 @@
 </footer>
 
 <script>
-  // CLEAR Prompt Builder
-  document.getElementById("build-prompt-btn").addEventListener("click", () => {
-    const context = document.getElementById("context").value.trim();
-    const language = document.getElementById("language").value.trim();
-    const examples = document.getElementById("examples").value.trim();
-    const ask = document.getElementById("ask").value.trim();
-    const refine = document.getElementById("refine").value.trim();
+/* CLEAR Prompt Builder */
+document.getElementById("build-prompt-btn").addEventListener("click", () => {
+  const c = document.getElementById("context").value.trim();
+  const l = document.getElementById("language").value.trim();
+  const e = document.getElementById("examples").value.trim();
+  const a = document.getElementById("ask").value.trim();
+  const r = document.getElementById("refine").value.trim();
 
-    let prompt = "";
+  let out = "";
+  if (c) out += `Context: ${c}\n\n`;
+  if (l) out += `Language/Tone: ${l}\n\n`;
+  if (e) out += `Examples: ${e}\n\n`;
+  if (a) out += `Ask: ${a}\n\n`;
+  if (r) out += `Refine: ${r}\n\n`;
 
-    if (context) {
-      prompt += `Context: ${context}\n\n`;
-    }
-    if (language) {
-      prompt += `Language/Tone: ${language}\n\n`;
-    }
-    if (examples) {
-      prompt += `Examples of "good": ${examples}\n\n`;
-    }
-    if (ask) {
-      prompt += `Ask: ${ask}\n\n`;
-    }
-    if (refine) {
-      prompt += `Refine: ${refine}\n\n`;
-    }
+  document.getElementById("generated-prompt").value =
+    out || "Add at least one CLEAR element to generate a prompt.";
+});
 
-    if (!prompt) {
-      prompt = "Add at least one CLEAR element to generate a prompt.";
-    }
+/* PROMPT GRADER — Dual System (R2, neon text icons N1) */
+document.getElementById("score-prompt-btn").addEventListener("click", () => {
+  const text = document.getElementById("prompt-input").value.trim();
+  const results = document.getElementById("score-results");
+  const breakdown = document.getElementById("category-breakdown");
+  const tipsList = document.getElementById("tips-list");
+  const rewrite = document.getElementById("rewrite-output");
 
-    document.getElementById("generated-prompt").value = prompt;
+  breakdown.innerHTML = "";
+  tipsList.innerHTML = "";
+  rewrite.value = "";
+
+  if (!text) {
+    results.style.display = "block";
+    document.getElementById("score-number").textContent = "0/10";
+    document.getElementById("score-label").textContent = "NEEDS WORK";
+    return;
+  }
+
+  const categories = [
+    { name: "Role", test: /(manager|engineer|designer|HR|director|lead|employee|candidate)/i },
+    { name: "Context", test: /(team|situation|company|employee|project|quarter|review|cycle)/i },
+    { name: "Task", test: /(draft|write|create|generate|summarize|analyze|compare|rewrite)/i },
+    { name: "Constraints", test: /(tone|avoid|limit|do not|word count|legal|bias)/i },
+    { name: "Format", test: /(bullet|paragraph|section|table|rating|narrative)/i }
+  ];
+
+  let score = 0;
+  let tips = [];
+
+  categories.forEach(cat => {
+    let catScore = cat.test.test(text) ? 1 : 0;
+    score += catScore;
+
+    const icons = catScore === 0 ? "○○" : catScore === 1 ? "●○" : "●●";
+
+    const block = document.createElement("div");
+    block.className = "category-block";
+    block.innerHTML = `
+      <div class="category-title">${cat.name}</div>
+      <div class="category-icons"><span>${icons}</span></div>
+      <div class="category-explanation">
+        ${catScore === 0
+          ? \`No \${cat.name.toLowerCase()} specified.\`
+          : \`Some \${cat.name.toLowerCase()} detected.\`}
+      </div>
+    `;
+    breakdown.appendChild(block);
+
+    if (catScore === 0) {
+      tips.push(\`Add \${cat.name.toLowerCase()} details to strengthen your prompt.\`);
+    }
   });
 
-  // Prompt Strength Tester (upgraded)
-  document.getElementById("score-prompt-btn").addEventListener("click", () => {
-    const promptText = document.getElementById("prompt-input").value.trim();
-    const summaryEl = document.getElementById("score-summary");
-    const breakdownEl = document.getElementById("score-breakdown");
-    const tipsEl = document.getElementById("score-tips");
-    const improvedEl = document.getElementById("improved-prompt");
-    const resultsSection = document.getElementById("score-results");
+  const scoreLabel =
+    score <= 3 ? "NEEDS WORK" : score <= 7 ? "STRONG" : "EXCELLENT";
 
-    breakdownEl.innerHTML = "";
-    tipsEl.innerHTML = "";
-    improvedEl.value = "";
+  document.getElementById("score-number").textContent = `${score}/10`;
+  document.getElementById("score-label").textContent = scoreLabel;
 
-    if (!promptText) {
-      summaryEl.textContent = "Please paste a prompt to score.";
-      resultsSection.style.display = "block";
-      return;
-    }
-
-    let score = 0;
-    const breakdown = [];
-    const tips = [];
-
-    const context = /(team|manager|HR|company|organization|role|situation)/i.test(promptText);
-    const language = /(tone|professional|warm|empathetic|direct|friendly)/i.test(promptText);
-    const examples = /(example|sample|such as|here is)/i.test(promptText);
-    const ask = /(draft|write|create|generate|help|summarize|build)/i.test(promptText);
-    const refine = /(refine|shorten|rewrite|adjust|iterate)/i.test(promptText);
-
-    if (context) {
-      score += 20;
-      breakdown.push("Context: Strong — clear situational details detected.");
-    } else {
-      breakdown.push("Context: Weak — add role, team, situation, or business need.");
-      tips.push("Add more context: who you are, the team, the situation, and the goal.");
-    }
-
-    if (language) {
-      score += 15;
-      breakdown.push("Language/Tone: Strong — tone or audience specified.");
-    } else {
-      breakdown.push("Language/Tone: Weak — specify tone or audience.");
-      tips.push("Add tone guidance such as 'professional but warm' or 'frontline-friendly'.");
-    }
-
-    if (examples) {
-      score += 15;
-      breakdown.push("Examples: Strong — examples of 'good' detected.");
-    } else {
-      breakdown.push("Examples: Missing — examples dramatically improve output quality.");
-      tips.push("Add 1–2 examples of what 'good' looks like.");
-    }
-
-    if (ask) {
-      score += 25;
-      breakdown.push("Ask: Strong — clear request detected.");
-    } else {
-      breakdown.push("Ask: Weak — state exactly what you want AI to produce.");
-      tips.push("State your ask clearly: draft, summarize, rewrite, compare, or build.");
-    }
-
-    if (refine) {
-      score += 15;
-      breakdown.push("Refinement: Strong — iterative instructions detected.");
-    } else {
-      breakdown.push("Refinement: Missing — add follow-up instructions.");
-      tips.push("Add refinement instructions like 'shorten by 30%' or 'make more empathetic'.");
-    }
-
-    const structure = /[\n\-•]|1\./.test(promptText);
-    if (structure) {
-      score += 10;
-      breakdown.push("Structure: Present — lists or steps detected.");
-    } else {
-      breakdown.push("Structure: Minimal — consider adding bullets or sections.");
-      tips.push("Add bullets or numbered steps to improve clarity.");
-    }
-
-    if (score > 100) score = 100;
-
-    const improvedPrompt = `
-Context: ${context ? "As stated in your prompt." : "Add role, team, situation, and business need."}
-
-Language/Tone: ${language ? "Use the tone you specified." : "Add tone guidance such as 'professional but warm'."}
-
-Examples: ${examples ? "Include the examples you referenced." : "Add 1–2 examples of what 'good' looks like."}
-
-Ask: ${ask ? "Your ask is clear." : "State exactly what you want AI to produce."}
-
-Refine: ${refine ? "Your refinement instructions are helpful." : "Add follow-up instructions such as 'shorten by 30%'."}
-
-Now produce the requested output using the above CLEAR structure.
-    `.trim();
-
-    summaryEl.textContent = `Overall Prompt Strength: ${score}/100`;
-
-    breakdown.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      breakdownEl.appendChild(li);
-    });
-
-    tips.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      tipsEl.appendChild(li);
-    });
-
-    improvedEl.value = improvedPrompt;
-
-    resultsSection.style.display = "block";
+  tips.forEach(t => {
+    const li = document.createElement("li");
+    li.textContent = t;
+    tipsList.appendChild(li);
   });
+
+  rewrite.value = `
+You are an experienced HR leader. Help me write a stronger version of this prompt by clearly stating the role, context, task, constraints, and desired format. Keep it concise, professional, and grounded in real HR practice.
+  `.trim();
+
+  results.style.display = "block";
+});
+
+/* Section fade-in on scroll */
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+sections.forEach(s => observer.observe(s));
+
+/* Floating "Grade my prompt" button */
+const floatBtn = document.createElement('button');
+floatBtn.textContent = 'Grade my prompt';
+floatBtn.className = 'floating-grade-btn';
+floatBtn.addEventListener('click', () => {
+  document.getElementById('interactive-grader').scrollIntoView({ behavior: 'smooth' });
+});
+document.body.appendChild(floatBtn);
+
+/* Dark/light toggle hook (optional) */
+function toggleTheme() {
+  document.body.classList.toggle('light');
+}
 </script>
 
 </body>
 </html>
-
-  
-
-
