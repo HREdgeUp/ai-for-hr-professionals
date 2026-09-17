@@ -15,8 +15,6 @@
       --text: #e5e7eb;
       --muted: #9ca3af;
       --border: #374151;
-      --danger: #f97373;
-      --success: #4ade80;
       --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
@@ -67,14 +65,8 @@
     }
 
     .hero-inner {
-      max-width: 1100px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .hero-content {
+      max-width: 900px;
+      text-align: center;
       position: relative;
     }
 
@@ -95,7 +87,7 @@
 
     .hero-glow {
       position: absolute;
-      inset: -40px -80px auto auto;
+      inset: -60px 0 auto;
       background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent 60%);
       opacity: 0.7;
       pointer-events: none;
@@ -128,34 +120,6 @@
 
     .secondary-btn:hover {
       border-color: var(--accent);
-    }
-
-    .hero-aside {
-      position: relative;
-      height: 220px;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), #020617);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-aside-inner {
-      text-align: center;
-      padding: 1.5rem;
-    }
-
-    .hero-aside-inner h2 {
-      margin: 0 0 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .hero-aside-inner p {
-      margin: 0.25rem 0;
-      font-size: 0.9rem;
-      color: var(--muted);
     }
 
     .section {
@@ -201,51 +165,23 @@
       padding-top: 0.75rem;
     }
 
-    .cards-grid,
-    .clear-grid,
-    .interactive-grid,
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .card,
-    .clear-card,
-    .interactive-card,
-    .about-card,
     .prompt-card {
       background: var(--card-bg);
       border-radius: 18px;
       padding: 1.4rem;
       border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
     }
 
-    .card h3,
-    .clear-card h3,
-    .interactive-card h3,
-    .about-card h3,
     .prompt-card h3 {
       margin-top: 0;
       margin-bottom: 0.75rem;
     }
 
-    .card ul,
-    .guardrails-list,
-    .prompt-card pre,
-    .example-box,
-    .score-box,
-    .output-box {
-      margin: 0;
-    }
-
-    .example-box {
-      margin-top: 1.5rem;
-      padding: 1.2rem;
-      border-radius: 16px;
-      border: 1px dashed var(--accent);
-      background: rgba(15, 23, 42, 0.8);
+    .note {
+      margin-top: 1rem;
+      font-style: italic;
+      color: var(--muted);
     }
 
     .guardrails-list {
@@ -258,71 +194,19 @@
       margin-bottom: 0.6rem;
     }
 
-    .prompt-card pre {
-      background: #020617;
-      border-radius: 12px;
-      padding: 0.8rem;
-      font-size: 0.85rem;
-      overflow-x: auto;
-    }
-
-    .note {
-      margin-top: 1.5rem;
-      font-style: italic;
-      color: var(--muted);
-    }
-
-    .interactive-card textarea,
-    .interactive-card input {
-      width: 100%;
-      margin-top: 0.25rem;
-      margin-bottom: 0.75rem;
-      padding: 0.5rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #020617;
-      color: var(--text);
-      font-size: 0.9rem;
-      resize: vertical;
-    }
-
-    .interactive-card label {
-      display: block;
-      font-size: 0.85rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .output-box,
-    .score-box {
-      margin-top: 1rem;
-      padding: 0.9rem;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: #020617;
-    }
-
-    .output-box textarea {
-      width: 100%;
-      min-height: 140px;
-      border: none;
-      background: transparent;
-      color: var(--text);
-      resize: vertical;
-    }
-
-    .score-box ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0.6rem;
-    }
-
-    .score-box li {
-      font-size: 0.85rem;
-      margin-bottom: 0.3rem;
-    }
-
     .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
       align-items: flex-start;
+    }
+
+    .about-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
     }
 
     .site-footer {
@@ -354,10 +238,6 @@
         padding: 3rem 1.5rem 2.5rem;
       }
 
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
       .section {
         padding: 2.5rem 1.5rem;
       }
@@ -383,71 +263,84 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-glow"></div>
-      <h1>AI for People Leaders</h1>
-      <p>A Practical, Human-Centered Guide for Modern HR.</p>
-      <p class="tagline">
-        CLEAR Framework, HR use cases, guardrails, workflows, and prompts — built for real people leadership work.
-      </p>
-      <button class="primary-btn">Try the CLEAR Prompt Builder</button>
-      <button class="secondary-btn">Score an existing prompt</button>
-    </div>
-    <div class="hero-aside">
-      <div class="hero-aside-inner">
-        <h2>Your HR-Ready AI Workspace</h2>
-        <p>Build better prompts, test their strength, and apply them directly to HR work.</p>
-        <p>All in one simple, human-centered page.</p>
-      </div>
-    </div>
+    <div class="hero-glow"></div>
+    <h1>AI for People Leaders</h1>
+    <p>A Practical, Human-Centered Guide for Modern HR.</p>
+    <p class="tagline">
+      CLEAR Framework, HR use cases, guardrails, workflows, and prompts — built for real people leadership work.
+    </p>
+    <button class="primary-btn">Try the CLEAR Prompt Builder</button>
+    <button class="secondary-btn">Score an existing prompt</button>
   </div>
 </section>
 
-<section class="section alt" id="interactive-tools">
-  <h2>Interactive Tools: Build and Score Your Prompts</h2>
-  <p>
-    Use these tools to structure your prompts with CLEAR and quickly assess their strength before using them in HR work.
+<section id="interactive-tools" class="section" style="background: transparent; padding-top: 4rem;">
+  <h2 style="font-size: 2rem; margin-bottom: 1rem;">Interactive Tools</h2>
+  <p style="max-width: 800px; margin-bottom: 2.5rem; color: var(--muted);">
+    Build better prompts and evaluate their strength using these simple, full‑width tools designed for HR leaders.
   </p>
 
-  <div class="interactive-grid">
-    <div class="interactive-card">
-      <h3>CLEAR Prompt Builder</h3>
+  <!-- CLEAR Prompt Builder -->
+  <div style="margin-bottom: 4rem; max-width: 900px;">
+    <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">CLEAR Prompt Builder</h3>
 
-      <label for="context">Context</label>
-      <textarea id="context" placeholder="What’s happening? Role, team, situation, business need..."></textarea>
+    <label for="context" style="display:block; margin-bottom:0.4rem;">Context</label>
+    <textarea id="context" placeholder="What’s happening? Role, team, situation, business need..."
+      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
 
-      <label for="language">Language / Tone</label>
-      <input id="language" type="text" placeholder="e.g., warm, direct, professional, frontline‑friendly..." />
+    <label for="language" style="display:block; margin-bottom:0.4rem;">Language / Tone</label>
+    <input id="language" type="text" placeholder="e.g., warm, direct, professional, frontline‑friendly..."
+      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;" />
 
-      <label for="examples">Examples of “good”</label>
-      <textarea id="examples" placeholder="Paste 1–2 examples of what ‘good’ looks like (optional)."></textarea>
+    <label for="examples" style="display:block; margin-bottom:0.4rem;">Examples of “good”</label>
+    <textarea id="examples" placeholder="Paste 1–2 examples of what ‘good’ looks like (optional)."
+      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
 
-      <label for="ask">Ask</label>
-      <textarea id="ask" placeholder="What do you want AI to do? Draft, summarize, compare, rewrite..."></textarea>
+    <label for="ask" style="display:block; margin-bottom:0.4rem;">Ask</label>
+    <textarea id="ask" placeholder="What do you want AI to do? Draft, summarize, compare, rewrite..."
+      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
 
-      <label for="refine">Refine</label>
-      <textarea id="refine" placeholder="How should AI refine the output? Shorten, adjust tone, add bullets..."></textarea>
+    <label for="refine" style="display:block; margin-bottom:0.4rem;">Refine</label>
+    <textarea id="refine" placeholder="How should AI refine the output? Shorten, adjust tone, add bullets..."
+      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
 
-      <button id="build-prompt-btn" class="primary-btn">Generate CLEAR‑Structured Prompt</button>
+    <button id="build-prompt-btn"
+      style="padding:0.75rem 1.5rem; border-radius:999px; background:var(--accent); color:#0b1120; border:none; cursor:pointer; font-weight:600; margin-bottom:1.5rem;">
+      Generate CLEAR‑Structured Prompt
+    </button>
 
-      <div class="output-box">
-        <label for="generated-prompt">Generated Prompt</label>
-        <textarea id="generated-prompt" readonly placeholder="Your CLEAR‑structured prompt will appear here."></textarea>
-      </div>
+    <div style="margin-top:1.5rem;">
+      <label for="generated-prompt" style="display:block; margin-bottom:0.4rem;">Generated Prompt</label>
+      <textarea id="generated-prompt" readonly
+        style="width:100%; min-height:160px; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text);"></textarea>
     </div>
+  </div>
 
-    <div class="interactive-card">
-      <h3>Prompt Strength Tester</h3>
+  <!-- Prompt Strength Tester -->
+  <div style="max-width: 900px; margin-top: 4rem;">
+    <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Prompt Strength Tester</h3>
 
-      <label for="prompt-input">Paste a Prompt to Score</label>
-      <textarea id="prompt-input" placeholder="Paste any prompt here to see how strong it is."></textarea>
+    <label for="prompt-input" style="display:block; margin-bottom:0.4rem;">Paste a Prompt to Score</label>
+    <textarea id="prompt-input" placeholder="Paste any prompt here to see how strong it is."
+      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
 
-      <button id="score-prompt-btn" class="secondary-btn">Score This Prompt</button>
+    <button id="score-prompt-btn"
+      style="padding:0.75rem 1.5rem; border-radius:999px; background:transparent; border:1px solid var(--accent); color:var(--accent); cursor:pointer; font-weight:600; margin-bottom:1.5rem;">
+      Score This Prompt
+    </button>
 
-      <div class="score-box">
-        <strong id="score-summary">Overall Prompt Strength: —</strong>
-        <ul id="score-breakdown"></ul>
-      </div>
+    <div id="score-results" style="margin-top:2rem; display:none;">
+      <strong id="score-summary" style="display:block; margin-bottom:1rem; font-size:1.2rem;"></strong>
+
+      <h4 style="margin-top:1.5rem;">Breakdown by CLEAR Element</h4>
+      <ul id="score-breakdown" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
+
+      <h4 style="margin-top:2rem;">Tips to Strengthen Your Prompt</h4>
+      <ul id="score-tips" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
+
+      <h4 style="margin-top:2rem;">Stronger Version of Your Prompt</h4>
+      <textarea id="improved-prompt" readonly
+        style="width:100%; min-height:180px; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text);"></textarea>
     </div>
   </div>
 </section>
@@ -538,17 +431,6 @@
     “Shorten by 30 percent,” or “Rewrite the opening paragraph.” Treat AI like a talented colleague who benefits from
     clear, kind redirection.
   </p>
-
-  <div class="example-box">
-    <p><strong>CLEAR in Action: A Quick Example</strong></p>
-    <p>
-      C - Context: I am an HR Director at a 500-person manufacturing company.<br />
-      L - Language: Professional tone, accessible for frontline supervisors.<br />
-      E - Examples: Here is a sample policy we have used before: [paste example here]<br />
-      A - Ask: Draft a one-page attendance policy balancing accountability with flexibility.<br />
-      R - Refine: “Make the consequences section less punitive and add a wellness support note.”
-    </p>
-  </div>
 
   <div class="page-footer">Page 4 — 2026 — Heather Limke</div>
 </section>
@@ -957,7 +839,7 @@
     </div>
   </div>
 
-  <div class="score-box">
+  <div style="margin-top:1.5rem; padding:1rem; border-radius:14px; background:#020617; border:1px solid var(--border);">
     <p>
       "The most powerful thing AI can do for HR is give us back the time and energy
       to be more human: more present, more empathetic, and more strategic."
@@ -977,29 +859,154 @@
 </footer>
 
 <script>
-<div style="max-width: 900px; margin-top: 4rem;">
-  <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Prompt Strength Tester</h3>
+  // CLEAR Prompt Builder
+  document.getElementById("build-prompt-btn").addEventListener("click", () => {
+    const context = document.getElementById("context").value.trim();
+    const language = document.getElementById("language").value.trim();
+    const examples = document.getElementById("examples").value.trim();
+    const ask = document.getElementById("ask").value.trim();
+    const refine = document.getElementById("refine").value.trim();
 
-  <label for="prompt-input" style="display:block; margin-bottom:0.4rem;">Paste a Prompt to Score</label>
-  <textarea id="prompt-input" placeholder="Paste any prompt here to see how strong it is."
-    style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
+    let prompt = "";
 
-  <button id="score-prompt-btn"
-    style="padding:0.75rem 1.5rem; border-radius:999px; background:transparent; border:1px solid var(--accent); color:var(--accent); cursor:pointer; font-weight:600; margin-bottom:1.5rem;">
-    Score This Prompt
-  </button>
+    if (context) {
+      prompt += `Context: ${context}\n\n`;
+    }
+    if (language) {
+      prompt += `Language/Tone: ${language}\n\n`;
+    }
+    if (examples) {
+      prompt += `Examples of "good": ${examples}\n\n`;
+    }
+    if (ask) {
+      prompt += `Ask: ${ask}\n\n`;
+    }
+    if (refine) {
+      prompt += `Refine: ${refine}\n\n`;
+    }
 
-  <div id="score-results" style="margin-top:2rem; display:none;">
-    <strong id="score-summary" style="display:block; margin-bottom:1rem; font-size:1.2rem;"></strong>
+    if (!prompt) {
+      prompt = "Add at least one CLEAR element to generate a prompt.";
+    }
 
-    <h4 style="margin-top:1.5rem;">Breakdown by CLEAR Element</h4>
-    <ul id="score-breakdown" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
+    document.getElementById("generated-prompt").value = prompt;
+  });
 
-    <h4 style="margin-top:2rem;">Tips to Strengthen Your Prompt</h4>
-    <ul id="score-tips" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
+  // Prompt Strength Tester (upgraded)
+  document.getElementById("score-prompt-btn").addEventListener("click", () => {
+    const promptText = document.getElementById("prompt-input").value.trim();
+    const summaryEl = document.getElementById("score-summary");
+    const breakdownEl = document.getElementById("score-breakdown");
+    const tipsEl = document.getElementById("score-tips");
+    const improvedEl = document.getElementById("improved-prompt");
+    const resultsSection = document.getElementById("score-results");
 
-    <h4 style="margin-top:2rem;">Stronger Version of Your Prompt</h4>
-    <textarea id="improved-prompt" readonly
-      style="width:100%; min-height:180px; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text);"></textarea>
-  </div>
-</div>
+    breakdownEl.innerHTML = "";
+    tipsEl.innerHTML = "";
+    improvedEl.value = "";
+
+    if (!promptText) {
+      summaryEl.textContent = "Please paste a prompt to score.";
+      resultsSection.style.display = "block";
+      return;
+    }
+
+    let score = 0;
+    const breakdown = [];
+    const tips = [];
+
+    const context = /(team|manager|HR|company|organization|role|situation)/i.test(promptText);
+    const language = /(tone|professional|warm|empathetic|direct|friendly)/i.test(promptText);
+    const examples = /(example|sample|such as|here is)/i.test(promptText);
+    const ask = /(draft|write|create|generate|help|summarize|build)/i.test(promptText);
+    const refine = /(refine|shorten|rewrite|adjust|iterate)/i.test(promptText);
+
+    if (context) {
+      score += 20;
+      breakdown.push("Context: Strong — clear situational details detected.");
+    } else {
+      breakdown.push("Context: Weak — add role, team, situation, or business need.");
+      tips.push("Add more context: who you are, the team, the situation, and the goal.");
+    }
+
+    if (language) {
+      score += 15;
+      breakdown.push("Language/Tone: Strong — tone or audience specified.");
+    } else {
+      breakdown.push("Language/Tone: Weak — specify tone or audience.");
+      tips.push("Add tone guidance such as 'professional but warm' or 'frontline-friendly'.");
+    }
+
+    if (examples) {
+      score += 15;
+      breakdown.push("Examples: Strong — examples of 'good' detected.");
+    } else {
+      breakdown.push("Examples: Missing — examples dramatically improve output quality.");
+      tips.push("Add 1–2 examples of what 'good' looks like.");
+    }
+
+    if (ask) {
+      score += 25;
+      breakdown.push("Ask: Strong — clear request detected.");
+    } else {
+      breakdown.push("Ask: Weak — state exactly what you want AI to produce.");
+      tips.push("State your ask clearly: draft, summarize, rewrite, compare, or build.");
+    }
+
+    if (refine) {
+      score += 15;
+      breakdown.push("Refinement: Strong — iterative instructions detected.");
+    } else {
+      breakdown.push("Refinement: Missing — add follow-up instructions.");
+      tips.push("Add refinement instructions like 'shorten by 30%' or 'make more empathetic'.");
+    }
+
+    const structure = /[\n\-•]|1\./.test(promptText);
+    if (structure) {
+      score += 10;
+      breakdown.push("Structure: Present — lists or steps detected.");
+    } else {
+      breakdown.push("Structure: Minimal — consider adding bullets or sections.");
+      tips.push("Add bullets or numbered steps to improve clarity.");
+    }
+
+    if (score > 100) score = 100;
+
+    const improvedPrompt = `
+Context: ${context ? "As stated in your prompt." : "Add role, team, situation, and business need."}
+
+Language/Tone: ${language ? "Use the tone you specified." : "Add tone guidance such as 'professional but warm'."}
+
+Examples: ${examples ? "Include the examples you referenced." : "Add 1–2 examples of what 'good' looks like."}
+
+Ask: ${ask ? "Your ask is clear." : "State exactly what you want AI to produce."}
+
+Refine: ${refine ? "Your refinement instructions are helpful." : "Add follow-up instructions such as 'shorten by 30%'."}
+
+Now produce the requested output using the above CLEAR structure.
+    `.trim();
+
+    summaryEl.textContent = `Overall Prompt Strength: ${score}/100`;
+
+    breakdown.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      breakdownEl.appendChild(li);
+    });
+
+    tips.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      tipsEl.appendChild(li);
+    });
+
+    improvedEl.value = improvedPrompt;
+
+    resultsSection.style.display = "block";
+  });
+</script>
+
+</body>
+</html>
+
+  
