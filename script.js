@@ -44,71 +44,124 @@ document.getElementById("score-prompt-btn").addEventListener("click", () => {
   }
 
   // Simple heuristic scoring based on CLEAR-like signals
+  document.getElementById("score-prompt-btn").addEventListener("click", () => {
+  const promptText = document.getElementById("prompt-input").value.trim();
+  const summaryEl = document.getElementById("score-summary");
+  const breakdownEl = document.getElementById("score-breakdown");
+  const tipsEl = document.getElementById("score-tips");
+  const improvedEl = document.getElementById("improved-prompt");
+  const resultsSection = document.getElementById("score-results");
+
+  breakdownEl.innerHTML = "";
+  tipsEl.innerHTML = "";
+  improvedEl.value = "";
+
+  if (!promptText) {
+    summaryEl.textContent = "Please paste a prompt to score.";
+    resultsSection.style.display = "block";
+    return;
+  }
+
   let score = 0;
   const breakdown = [];
+  const tips = [];
 
-  // Clarity: length + presence of clear ask
-  const hasAskWords = /draft|write|create|generate|help|build|summarize/i.test(promptText);
-  if (hasAskWords) {
+  // --- CLEAR scoring logic ---
+  const context = /(team|manager|HR|company|organization|role|situation)/i.test(promptText);
+  const language = /(tone|professional|warm|empathetic|direct|friendly)/i.test(promptText);
+  const examples = /(example|sample|such as|here is)/i.test(promptText);
+  const ask = /(draft|write|create|generate|help|summarize|build)/i.test(promptText);
+  const refine = /(refine|shorten|rewrite|adjust|iterate)/i.test(promptText);
+
+  // Context
+  if (context) {
     score += 20;
-    breakdown.push("Clarity of ask: strong (explicit request detected).");
+    breakdown.push("Context: Strong — clear situational details detected.");
   } else {
-    breakdown.push("Clarity of ask: weak (no explicit request detected).");
+    breakdown.push("Context: Weak — add role, team, situation, or business need.");
+    tips.push("Add more context: who you are, the team, the situation, and the goal.");
   }
 
-  // Context: mentions role, company, or size
-  const hasContextWords = /(HR|manager|director|company|team|employees|organization|size)/i.test(promptText);
-  if (hasContextWords) {
-    score += 20;
-    breakdown.push("Context: present (role/org references found).");
-  } else {
-    breakdown.push("Context: limited (no clear role/org context).");
-  }
-
-  // Tone/Language: mentions tone or audience
-  const hasToneWords = /(tone|professional|warm|empathetic|direct|frontline|leaders|employees)/i.test(promptText);
-  if (hasToneWords) {
+  // Language
+  if (language) {
     score += 15;
-    breakdown.push("Tone & audience: specified.");
+    breakdown.push("Language/Tone: Strong — tone or audience specified.");
   } else {
-    breakdown.push("Tone & audience: not specified.");
+    breakdown.push("Language/Tone: Weak — specify tone or audience.");
+    tips.push("Add tone guidance such as 'professional but warm' or 'frontline-friendly'.");
   }
 
-  // Examples: mentions examples or sample
-  const hasExampleWords = /(example|sample|here is|such as)/i.test(promptText);
-  if (hasExampleWords) {
+  // Examples
+  if (examples) {
     score += 15;
-    breakdown.push("Examples: referenced (helps alignment).");
+    breakdown.push("Examples: Strong — examples of 'good' detected.");
   } else {
-    breakdown.push("Examples: missing (consider adding one or two).");
+    breakdown.push("Examples: Missing — examples dramatically improve output quality.");
+    tips.push("Add 1–2 examples of what 'good' looks like.");
   }
 
-  // Refinement: mentions iteration or refinement
-  const hasRefineWords = /(refine|shorten|rewrite|make this|adjust|iterate)/i.test(promptText);
-  if (hasRefineWords) {
+  // Ask
+  if (ask) {
+    score += 25;
+    breakdown.push("Ask: Strong — clear request detected.");
+  } else {
+    breakdown.push("Ask: Weak — state exactly what you want AI to produce.");
+    tips.push("State your ask clearly: draft, summarize, rewrite, compare, or build.");
+  }
+
+  // Refine
+  if (refine) {
     score += 15;
-    breakdown.push("Refinement: included (iterative mindset).");
+    breakdown.push("Refinement: Strong — iterative instructions detected.");
   } else {
-    breakdown.push("Refinement: not included (consider adding follow-up instructions).");
+    breakdown.push("Refinement: Missing — add follow-up instructions.");
+    tips.push("Add refinement instructions like 'shorten by 30%' or 'make more empathetic'.");
   }
 
-  // Structure: presence of bullets or numbered steps
-  const hasStructure = /[\n\-•]|1\./.test(promptText);
-  if (hasStructure) {
-    score += 15;
-    breakdown.push("Structure: present (lists or steps detected).");
+  // Structure
+  const structure = /[\n\-•]|1\./.test(promptText);
+  if (structure) {
+    score += 10;
+    breakdown.push("Structure: Present — lists or steps detected.");
   } else {
-    breakdown.push("Structure: minimal (consider adding bullets or sections).");
+    breakdown.push("Structure: Minimal — consider adding bullets or sections.");
+    tips.push("Add bullets or numbered steps to improve clarity.");
   }
 
-  // Cap score at 100
   if (score > 100) score = 100;
 
+  // --- Improved prompt generation ---
+  const improvedPrompt = `
+Context: ${context ? "As stated in your prompt." : "Add role, team, situation, and business need."}
+
+Language/Tone: ${language ? "Use the tone you specified." : "Add tone guidance such as 'professional but warm'."}
+
+Examples: ${examples ? "Include the examples you referenced." : "Add 1–2 examples of what 'good' looks like."}
+
+Ask: ${ask ? "Your ask is clear." : "State exactly what you want AI to produce."}
+
+Refine: ${refine ? "Your refinement instructions are helpful." : "Add follow-up instructions such as 'shorten by 30%'."}
+
+Now produce the requested output using the above CLEAR structure.
+  `.trim();
+
+  // --- Render results ---
   summaryEl.textContent = `Overall Prompt Strength: ${score}/100`;
+
   breakdown.forEach(item => {
     const li = document.createElement("li");
     li.textContent = item;
     breakdownEl.appendChild(li);
   });
-});
 
+  tips.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    tipsEl.appendChild(li);
+  });
+
+  improvedEl.value = improvedPrompt;
+
+  resultsSection.style.display = "block";
+});
+  
