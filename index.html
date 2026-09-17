@@ -5,132 +5,444 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI for People Leaders | Heather Limke</title>
 
-  <!-- Light Editorial Style -->
   <style>
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #111827;
+      --card-bg: #1f2937;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #374151;
+      --danger: #f97373;
+      --success: #4ade80;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: "Georgia", serif;
-      background: #ffffff;
-      color: #222;
-      line-height: 1.7;
+      font-family: var(--font);
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text);
     }
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
+    /* Header / Hero Shell */
 
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    header p {
-      font-size: 20px;
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    nav {
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 15px;
-      border-bottom: 1px solid #eee;
-      background: #fafafa;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
     nav a {
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
       text-decoration: none;
-      color: #444;
-      font-size: 16px;
-      font-weight: 500;
     }
 
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 4rem 2rem 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      margin: 0.25rem 0;
+    }
+
+    .tagline {
+      margin-top: 1rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: -40px -80px auto auto;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      margin-right: 0.75rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .secondary-btn {
+      border-color: var(--border);
+      background: transparent;
+      color: var(--text);
+    }
+
+    .primary-btn:hover {
+      background: var(--accent);
+      color: #0b1120;
+    }
+
+    .secondary-btn:hover {
+      border-color: var(--accent);
+    }
+
+    .hero-aside {
+      position: relative;
+      height: 220px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), #020617);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-aside-inner {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .hero-aside-inner h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .hero-aside-inner p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Sections */
+
     .section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section.alt {
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: 24px;
+      margin-top: 1.5rem;
     }
 
     .section h2 {
-      font-size: 34px;
-      margin-bottom: 20px;
-      font-weight: 600;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
     }
 
-    .section h3 {
-      font-size: 24px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      font-weight: 600;
+    .section p {
+      max-width: 800px;
     }
 
-    .cards-grid {
+    /* Grids & Cards */
+
+    .cards-grid,
+    .clear-grid,
+    .interactive-grid,
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
 
-    .card {
-      background: #fafafa;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #eee;
+    .card,
+    .clear-card,
+    .interactive-card,
+    .about-card,
+    .prompt-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
     }
 
-    .prompt-card,
-    .workflow-block,
-    .checklist-phase,
-    .about-card {
-      background: #fafafa;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #eee;
-      margin-bottom: 30px;
+    .card h3,
+    .clear-card h3,
+    .interactive-card h3,
+    .about-card h3,
+    .prompt-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
     }
 
-    .quote-box {
-      margin-top: 40px;
-      padding: 25px;
-      background: #f5f5f5;
-      border-left: 4px solid #333;
+    .card ul,
+    .guardrails-list,
+    .prompt-card pre,
+    .example-box,
+    .score-box,
+    .output-box {
+      margin: 0;
     }
 
-    footer {
+    /* CLEAR example */
+
+    .example-box {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      border-radius: 16px;
+      border: 1px dashed var(--accent);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    /* Guardrails */
+
+    .guardrails-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+
+    .guardrails-list li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* Prompts */
+
+    .prompt-card pre {
+      background: #020617;
+      border-radius: 12px;
+      padding: 0.8rem;
+      font-size: 0.85rem;
+      overflow-x: auto;
+    }
+
+    /* Checklist */
+
+    .note {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* Interactive */
+
+    .interactive-card textarea,
+    .interactive-card input {
+      width: 100%;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      padding: 0.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #020617;
+      color: var(--text);
+      font-size: 0.9rem;
+      resize: vertical;
+    }
+
+    .interactive-card label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .output-box,
+    .score-box {
+      margin-top: 1rem;
+      padding: 0.9rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #020617;
+    }
+
+    .output-box textarea {
+      width: 100%;
+      min-height: 140px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      resize: vertical;
+    }
+
+    .score-box ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.6rem;
+    }
+
+    .score-box li {
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-grid {
+      align-items: flex-start;
+    }
+
+    .site-footer {
+      padding: 1.5rem 2rem;
       text-align: center;
-      padding: 40px;
-      margin-top: 60px;
-      border-top: 1px solid #eee;
-      font-size: 14px;
-      color: #777;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 0.25rem 0.75rem 0.25rem 0;
+      }
+
+      .hero {
+        padding: 3rem 1.5rem 2.5rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section {
+        padding: 2.5rem 1.5rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>AI for People Leaders</h1>
-  <p>A practical, human‑centered guide to using AI responsibly in modern HR.</p>
+<header class="site-header">
+  <div class="logo">AI for People Leaders</div>
+  <nav>
+    <a href="#introduction">Introduction</a>
+    <a href="#clear-framework">CLEAR</a>
+    <a href="#use-cases">Use Cases</a>
+    <a href="#guardrails">Guardrails</a>
+    <a href="#prompts">Prompts</a>
+    <a href="#workflows">Workflows</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#about">About</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#introduction">Introduction</a>
-  <a href="#clear-framework">CLEAR</a>
-  <a href="#use-cases">Use Cases</a>
-  <a href="#guardrails">Guardrails</a>
-  <a href="#prompts">Prompts</a>
-  <a href="#workflows">Workflows</a>
-  <a href="#checklist">Checklist</a>
-  <a href="#about">About</a>
-</nav>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-glow"></div>
+      <h1>AI for People Leaders</h1>
+      <p>A practical, human‑centered guide to using AI responsibly in modern HR.</p>
+      <p class="tagline">Designed for HR leaders who want clarity, guardrails, and real‑world workflows — not hype.</p>
+      <button class="primary-btn">Try the CLEAR Prompt Builder</button>
+      <button class="secondary-btn">Score an existing prompt</button>
+    </div>
+    <div class="hero-aside">
+      <div class="hero-aside-inner">
+        <h2>Your HR‑Ready AI Workspace</h2>
+        <p>Build better prompts, test their strength, and apply them directly to HR work.</p>
+        <p>All in one simple, human‑centered page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="interactive-tools">
+  <h2>Interactive Tools: Build and Score Your Prompts</h2>
+  <p>Use these tools to structure your prompts with CLEAR and quickly assess their strength before using them in HR work.</p>
+
+  <div class="interactive-grid">
+    <!-- CLEAR Prompt Builder -->
+    <div class="interactive-card">
+      <h3>CLEAR Prompt Builder</h3>
+
+      <label for="context">Context</label>
+      <textarea id="context" placeholder="What’s happening? Role, team, situation, business need..."></textarea>
+
+      <label for="language">Language / Tone</label>
+      <input id="language" type="text" placeholder="e.g., warm, direct, professional, frontline‑friendly..." />
+
+      <label for="examples">Examples of “good”</label>
+      <textarea id="examples" placeholder="Paste 1–2 examples of what ‘good’ looks like (optional)."></textarea>
+
+      <label for="ask">Ask</label>
+      <textarea id="ask" placeholder="What do you want AI to do? Draft, summarize, compare, rewrite..."></textarea>
+
+      <label for="refine">Refine</label>
+      <textarea id="refine" placeholder="How should AI refine the output? Shorten, adjust tone, add bullets..."></textarea>
+
+      <button id="build-prompt-btn" class="primary-btn">Generate CLEAR‑Structured Prompt</button>
+
+      <div class="output-box">
+        <label for="generated-prompt">Generated Prompt</label>
+        <textarea id="generated-prompt" readonly placeholder="Your CLEAR‑structured prompt will appear here."></textarea>
+      </div>
+    </div>
+
+    <!-- Prompt Strength Tester -->
+    <div class="interactive-card">
+      <h3>Prompt Strength Tester</h3>
+
+      <label for="prompt-input">Paste a Prompt to Score</label>
+      <textarea id="prompt-input" placeholder="Paste any prompt here to see how strong it is."></textarea>
+
+      <button id="score-prompt-btn" class="secondary-btn">Score This Prompt</button>
+
+      <div class="score-box">
+        <strong id="score-summary">Overall Prompt Strength: —</strong>
+        <ul id="score-breakdown"></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- SECTION 01 -->
 <section id="introduction" class="section">
@@ -172,7 +484,7 @@
 </section>
 
 <!-- SECTION 02 -->
-<section id="clear-framework" class="section">
+<section id="clear-framework" class="section alt">
   <h2>02 The CLEAR Framework</h2>
 
   <div class="cards-grid">
@@ -181,6 +493,17 @@
     <div class="card"><h3>E — Examples</h3><p>Show what good looks like.</p></div>
     <div class="card"><h3>A — Ask</h3><p>State your request clearly.</p></div>
     <div class="card"><h3>R — Refine</h3><p>Iterate to excellence.</p></div>
+  </div>
+
+  <div class="example-box">
+    <p><strong>Example CLEAR prompt:</strong></p>
+    <p>
+      “Context: I’m an HR Director supporting a 200‑person engineering org going through a reorg.<br />
+      Language: Professional, clear, empathetic.<br />
+      Examples: Here are two past messages that landed well.<br />
+      Ask: Draft a manager‑ready announcement and a separate employee‑ready announcement.<br />
+      Refine: Shorten both versions to under 300 words and add 3 bullet points of key actions.”
+    </p>
   </div>
 </section>
 
@@ -246,16 +569,16 @@
 </section>
 
 <!-- SECTION 04 -->
-<section id="guardrails" class="section">
+<section id="guardrails" class="section alt">
   <h2>04 Human‑Centered Guardrails</h2>
 
-  <div class="cards-grid">
-    <div class="card"><h3>1. Never Input Personal Data</h3><p>Protect privacy.</p></div>
-    <div class="card"><h3>2. Check for Bias</h3><p>Review outputs carefully.</p></div>
-    <div class="card"><h3>3. Maintain Human Connection</h3><p>AI supports — it does not replace.</p></div>
-    <div class="card"><h3>4. Know the Legal Landscape</h3><p>Regulations are evolving.</p></div>
-    <div class="card"><h3>5. Build an Audit Trail</h3><p>Document AI‑assisted decisions.</p></div>
-  </div>
+  <ul class="guardrails-list">
+    <li><strong>1. Never Input Personal Data</strong> — Protect privacy and confidentiality.</li>
+    <li><strong>2. Check for Bias</strong> — Review outputs for fairness and unintended patterns.</li>
+    <li><strong>3. Maintain Human Connection</strong> — AI supports; it does not replace human presence.</li>
+    <li><strong>4. Know the Legal Landscape</strong> — Regulations are evolving; stay aligned with counsel.</li>
+    <li><strong>5. Build an Audit Trail</strong> — Document when and how AI was used in decisions.</li>
+  </ul>
 </section>
 
 <!-- SECTION 05 -->
@@ -289,20 +612,20 @@
 </section>
 
 <!-- SECTION 06 -->
-<section id="workflows" class="section">
+<section id="workflows" class="section alt">
   <h2>06 AI Workflows Step‑By‑Step</h2>
 
-  <div class="workflow-block">
+  <div class="card">
     <h3>Workflow 1: Job Description</h3>
     <p>Steps 1–5 as rewritten.</p>
   </div>
 
-  <div class="workflow-block">
+  <div class="card">
     <h3>Workflow 2: Difficult Conversation</h3>
     <p>Steps 1–5 as rewritten.</p>
   </div>
 
-  <div class="workflow-block">
+  <div class="card">
     <h3>Workflow 3: Engagement Survey</h3>
     <p>Steps 1–5 as rewritten.</p>
   </div>
@@ -312,7 +635,7 @@
 <section id="checklist" class="section">
   <h2>07 Getting Started Checklist</h2>
 
-  <div class="checklist-phase">
+  <div class="card">
     <h3>Phase 1: Foundation</h3>
     <ul>
       <li>Read policy</li>
@@ -321,7 +644,7 @@
     </ul>
   </div>
 
-  <div class="checklist-phase">
+  <div class="card">
     <h3>Phase 2: Practice</h3>
     <ul>
       <li>Draft JD</li>
@@ -330,7 +653,7 @@
     </ul>
   </div>
 
-  <div class="checklist-phase">
+  <div class="card">
     <h3>Phase 3: Scale</h3>
     <ul>
       <li>Build prompt library</li>
@@ -338,10 +661,12 @@
       <li>Document decisions</li>
     </ul>
   </div>
+
+  <p class="note">Start small, stay human, and build confidence through repetition.</p>
 </section>
 
 <!-- SECTION 08 -->
-<section id="about" class="section">
+<section id="about" class="section alt">
   <h2>08 About Heather</h2>
 
   <p>
@@ -349,34 +674,143 @@
     and AI integration.
   </p>
 
-  <div class="about-card">
-    <h3>Expertise</h3>
-    <ul>
-      <li>People strategy</li>
-      <li>AI in HR</li>
-      <li>Leadership development</li>
-      <li>Talent acquisition</li>
-      <li>Employee experience</li>
-    </ul>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>Expertise</h3>
+      <ul>
+        <li>People strategy</li>
+        <li>AI in HR</li>
+        <li>Leadership development</li>
+        <li>Talent acquisition</li>
+        <li>Employee experience</li>
+      </ul>
+    </div>
+
+    <div class="about-card">
+      <h3>Contact</h3>
+      <p>Email: limke.heather@gmail.com</p>
+      <p>Location: Issaquah, WA</p>
+    </div>
   </div>
 
-  <div class="about-card">
-    <h3>Contact</h3>
-    <p>Email: limke.heather@gmail.com</p>
-    <p>Location: Issaquah, WA</p>
-  </div>
-
-  <div class="quote-box">
+  <div class="score-box">
     <p>
       “The most powerful thing AI can do for HR is give us back the time and energy to be more human.”
     </p>
   </div>
 </section>
 
-<footer>
+<footer class="site-footer">
   © 2026 Heather Limke — AI for People Leaders
 </footer>
 
+<script>
+  // CLEAR Prompt Builder
+  document.getElementById("build-prompt-btn").addEventListener("click", () => {
+    const context = document.getElementById("context").value.trim();
+    const language = document.getElementById("language").value.trim();
+    const examples = document.getElementById("examples").value.trim();
+    const ask = document.getElementById("ask").value.trim();
+    const refine = document.getElementById("refine").value.trim();
+
+    let prompt = "";
+
+    if (context) {
+      prompt += `Context: ${context}\n\n`;
+    }
+    if (language) {
+      prompt += `Language/Tone: ${language}\n\n`;
+    }
+    if (examples) {
+      prompt += `Examples of "good": ${examples}\n\n`;
+    }
+    if (ask) {
+      prompt += `Ask: ${ask}\n\n`;
+    }
+    if (refine) {
+      prompt += `Refine: ${refine}\n\n`;
+    }
+
+    if (!prompt) {
+      prompt = "Add at least one CLEAR element to generate a prompt.";
+    }
+
+    document.getElementById("generated-prompt").value = prompt;
+  });
+
+  // Prompt Strength Tester
+  document.getElementById("score-prompt-btn").addEventListener("click", () => {
+    const promptText = document.getElementById("prompt-input").value.trim();
+    const summaryEl = document.getElementById("score-summary");
+    const breakdownEl = document.getElementById("score-breakdown");
+    breakdownEl.innerHTML = "";
+
+    if (!promptText) {
+      summaryEl.textContent = "Please paste a prompt to score.";
+      return;
+    }
+
+    let score = 0;
+    const breakdown = [];
+
+    const hasAskWords = /draft|write|create|generate|help|build|summarize/i.test(promptText);
+    if (hasAskWords) {
+      score += 20;
+      breakdown.push("Clarity of ask: strong (explicit request detected).");
+    } else {
+      breakdown.push("Clarity of ask: weak (no explicit request detected).");
+    }
+
+    const hasContextWords = /(HR|manager|director|company|team|employees|organization|size)/i.test(promptText);
+    if (hasContextWords) {
+      score += 20;
+      breakdown.push("Context: present (role/org references found).");
+    } else {
+      breakdown.push("Context: limited (no clear role/org context).");
+    }
+
+    const hasToneWords = /(tone|professional|warm|empathetic|direct|frontline|leaders|employees)/i.test(promptText);
+    if (hasToneWords) {
+      score += 15;
+      breakdown.push("Tone & audience: specified.");
+    } else {
+      breakdown.push("Tone & audience: not specified.");
+    }
+
+    const hasExampleWords = /(example|sample|here is|such as)/i.test(promptText);
+    if (hasExampleWords) {
+      score += 15;
+      breakdown.push("Examples: referenced (helps alignment).");
+    } else {
+      breakdown.push("Examples: missing (consider adding one or two).");
+    }
+
+    const hasRefineWords = /(refine|shorten|rewrite|make this|adjust|iterate)/i.test(promptText);
+    if (hasRefineWords) {
+      score += 15;
+      breakdown.push("Refinement: included (iterative mindset).");
+    } else {
+      breakdown.push("Refinement: not included (consider adding follow-up instructions).");
+    }
+
+    const hasStructure = /[\n\-•]|1\./.test(promptText);
+    if (hasStructure) {
+      score += 15;
+      breakdown.push("Structure: present (lists or steps detected).");
+    } else {
+      breakdown.push("Structure: minimal (consider adding bullets or sections).");
+    }
+
+    if (score > 100) score = 100;
+
+    summaryEl.textContent = `Overall Prompt Strength: ${score}/100`;
+    breakdown.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      breakdownEl.appendChild(li);
+    });
+  });
+</script>
+
 </body>
 </html>
-
