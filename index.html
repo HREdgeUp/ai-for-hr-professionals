@@ -977,69 +977,29 @@
 </footer>
 
 <script>
- <section id="interactive-tools" class="section" style="background: transparent; padding-top: 4rem;">
+<div style="max-width: 900px; margin-top: 4rem;">
+  <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Prompt Strength Tester</h3>
 
-  <h2 style="font-size: 2rem; margin-bottom: 1rem;">Interactive Tools</h2>
-  <p style="max-width: 800px; margin-bottom: 2.5rem; color: var(--muted);">
-    Build better prompts and evaluate their strength using these simple, full‑width tools designed for HR leaders.
-  </p>
+  <label for="prompt-input" style="display:block; margin-bottom:0.4rem;">Paste a Prompt to Score</label>
+  <textarea id="prompt-input" placeholder="Paste any prompt here to see how strong it is."
+    style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
 
-  <!-- CLEAR Prompt Builder -->
-  <div style="margin-bottom: 4rem; max-width: 900px;">
-    <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">CLEAR Prompt Builder</h3>
+  <button id="score-prompt-btn"
+    style="padding:0.75rem 1.5rem; border-radius:999px; background:transparent; border:1px solid var(--accent); color:var(--accent); cursor:pointer; font-weight:600; margin-bottom:1.5rem;">
+    Score This Prompt
+  </button>
 
-    <label for="context" style="display:block; margin-bottom:0.4rem;">Context</label>
-    <textarea id="context" placeholder="What’s happening? Role, team, situation, business need..."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
+  <div id="score-results" style="margin-top:2rem; display:none;">
+    <strong id="score-summary" style="display:block; margin-bottom:1rem; font-size:1.2rem;"></strong>
 
-    <label for="language" style="display:block; margin-bottom:0.4rem;">Language / Tone</label>
-    <input id="language" type="text" placeholder="e.g., warm, direct, professional, frontline‑friendly..."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;" />
+    <h4 style="margin-top:1.5rem;">Breakdown by CLEAR Element</h4>
+    <ul id="score-breakdown" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
 
-    <label for="examples" style="display:block; margin-bottom:0.4rem;">Examples of “good”</label>
-    <textarea id="examples" placeholder="Paste 1–2 examples of what ‘good’ looks like (optional)."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
+    <h4 style="margin-top:2rem;">Tips to Strengthen Your Prompt</h4>
+    <ul id="score-tips" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
 
-    <label for="ask" style="display:block; margin-bottom:0.4rem;">Ask</label>
-    <textarea id="ask" placeholder="What do you want AI to do? Draft, summarize, compare, rewrite..."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
-
-    <label for="refine" style="display:block; margin-bottom:0.4rem;">Refine</label>
-    <textarea id="refine" placeholder="How should AI refine the output? Shorten, adjust tone, add bullets..."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
-
-    <button id="build-prompt-btn"
-      style="padding:0.75rem 1.5rem; border-radius:999px; background:var(--accent); color:#0b1120; border:none; cursor:pointer; font-weight:600; margin-bottom:1.5rem;">
-      Generate CLEAR‑Structured Prompt
-    </button>
-
-    <div style="margin-top:1.5rem;">
-      <label for="generated-prompt" style="display:block; margin-bottom:0.4rem;">Generated Prompt</label>
-      <textarea id="generated-prompt" readonly
-        style="width:100%; min-height:160px; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text);"></textarea>
-    </div>
+    <h4 style="margin-top:2rem;">Stronger Version of Your Prompt</h4>
+    <textarea id="improved-prompt" readonly
+      style="width:100%; min-height:180px; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text);"></textarea>
   </div>
-
-  <!-- Prompt Strength Tester -->
-  <div style="max-width: 900px;">
-    <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Prompt Strength Tester</h3>
-
-    <label for="prompt-input" style="display:block; margin-bottom:0.4rem;">Paste a Prompt to Score</label>
-    <textarea id="prompt-input" placeholder="Paste any prompt here to see how strong it is."
-      style="width:100%; padding:0.75rem; border-radius:10px; background:#0b1120; border:1px solid var(--border); color:var(--text); margin-bottom:1.5rem;"></textarea>
-
-    <button id="score-prompt-btn"
-      style="padding:0.75rem 1.5rem; border-radius:999px; background:transparent; border:1px solid var(--accent); color:var(--accent); cursor:pointer; font-weight:600; margin-bottom:1.5rem;">
-      Score This Prompt
-    </button>
-
-    <div style="margin-top:1.5rem;">
-      <strong id="score-summary" style="display:block; margin-bottom:0.75rem;">Overall Prompt Strength: —</strong>
-      <ul id="score-breakdown" style="list-style:none; padding-left:0; color:var(--muted);"></ul>
-    </div>
-  </div>
-
-</section>
-
-
-  
+</div>
